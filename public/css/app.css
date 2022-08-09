@@ -1,0 +1,32 @@
+
+body{
+    background-color: #00FFFF;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+a:hover{
+    color:red;
+}
+
+ul li{
+    list-style: none;
+}
+
+.menu-topm, li{
+    display:inline-block;
+    /* margin: 0 0 0 15px; */
+    padding-top: 25px;
+    align-content: flex-end;
+   
+}
+
+.menu{
+    background-color: grey;
+    padding-bottom: 15px;
+}
+
+
