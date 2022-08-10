@@ -9,24 +9,18 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <div class="menu-top">  
-                <ul>
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/projetos') }}">Meus Projetos</a></li>
-                    <li><a href="{{ url('/clientes') }}">Meus clientes</a></li>
-                    <li><a href="{{ url('/contato') }}">Contato</a></li>
-                </ul>
-            </div>
-        </div>
-
+    <header class="header">  
+            <div>Brendon Lina</div>
     </header>
+
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Meus Projetos</a>
+        <a href="#">Meus Clientes</a>
+        <a href="#">Contato</a>
+    </nav>
     <section>
-            <h1>ABCD</h1>
-            <h2>ABCD</h2>
-            <h3>ABCD</h3>
-            <h4>ABCD</h4>
+        
     </section>
     <footer>
         <h6>footer</h6>
