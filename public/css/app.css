@@ -145,11 +145,12 @@ footer .footer{
 .headline p{
     color:grey;
     text-align: left;
+    margin-top: 27px;
 }
 
 .contact-btn{
     display:inline-block;
-    background-color:rgb(50, 6, 173);
+    background-color:#385a64;
     color: white;
     padding: 20px;
     border-radius: 5px;
@@ -162,11 +163,12 @@ footer .footer{
 }
 
 #portfolio{
-    font-size: 70px;
+    font-size: 50px;
 }
 
 #bem-vindo{
-    letter-spacing: 15px;
+    font-size:30px;
+    letter-spacing: 7px;
 }
 
 .img-headline{

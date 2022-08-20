@@ -25,9 +25,13 @@
    </nav>
    <header class="header">
        <div class="headline">
-           <h2 id="bem-vindo">Bem vindo ao meu site!</h2>
-           <h2 id="portfolio">Esse é meu portfólio</h2>
-           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem eum aspernatur pariatur cupiditate totam obcaecati ut ullam, necessitatibus dolorum. Nihil quod repellendus quos quidem magni beatae quo quibusdam maiores sint!</p>
+           <h2 id="bem-vindo">Olá,Seja bem vindo!</h2>
+           <h2 id="portfolio">Essa é minha História</h2>
+           <p>Sou <b>Brendon lina</b> tenho 25 anos, sou desenvolvedor web desde 2020, atuando com PHP, Laravel, Node, React,
+               Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
+               no decorrer desses anos eu atuei em algumas empresas, e também em alguns sistemas própio com enfase
+               nos estudos, enfim esse é meu portfólio fique a vontade.
+           </p>
            <a href="#" class="contact-btn">FALE COMIGO</a>
        </div>
        <div class="img-headline">
@@ -35,7 +39,7 @@
        </div> 
    </header>
    <section>
-       <h2>O que podemos fazer por você?</h2>
+       <h2>Minhas experiências pessoais</h2>
        <div class="servicos">
             <div class="card">
                 <img src="/img/codificacao-da-web.png">
