@@ -15,7 +15,18 @@ section{
     border: 1px solid black;
     margin-left: 5%;
     margin-right: 5%;
-    height: 400px;
+    /*senão definir o height ele fica em um valor automatico e se adapta ao conteudo de dentro*/
+    /* height: 400px; */
+    text-align: center;
+    padding: 5%;
+    width: 90%;
+}
+
+section h2{
+    width: 100%;
+    font-size:35px;
+    margin: 0;
+    font-family: 'DynaPuff', cursive;
 }
 
 .navbar{
@@ -128,4 +139,41 @@ section{
     text-align: center;
     
 }
+
+.servicos{
+    display: inline-block;
+    margin-top:5%;
+}
+
+.card{
+    display: inline-block;
+    width:30%;
+    padding: 20px;
+    margin: 1%;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+}
+
+#unico{
+    background-color:#385a64;
+}
+
+.modal-body img{
+    width: 350px;
+    height: 350px;
+}
+
+.bi-github, .bi-eye-fill{
+    cursor:pointer;
+    
+}
+
+.card a{
+    text-decoration:none;
+    color: #385a64;
+}
+
+
+
 
