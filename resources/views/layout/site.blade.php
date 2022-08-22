@@ -214,7 +214,7 @@
     </div>
 
     <div class="meu-form">    
-        <form method="POST" action="/">
+        <form method="POST" action="/user">
             @csrf
             <h1 class="mensagem">Deixe um comentário!</h1>
             <div class="mb-3">
