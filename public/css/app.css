@@ -212,6 +212,39 @@ footer .footer{
     color: #385a64;
 }
 
+.experiencias{
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align:center;
+    padding: 20px;
+}
+
+.meu-form{
+    display:flex;
+    flex-flow: column;
+    margin-top: 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: #385a64;
+    color: white;
+
+}
+
+.meu-form .form-control{
+    width: 450px;
+}
+
+.sem-comentario{
+    margin-top: 70px;
+}
+
+.comentarios{
+    display: inline-block;
+    margin: 30px 12px 12px 10px;
+}
+
+
 
 
 

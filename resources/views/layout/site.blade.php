@@ -27,10 +27,10 @@
        <div class="headline">
            <h2 id="bem-vindo">Olá,Seja bem vindo!</h2>
            <h2 id="portfolio">Essa é minha História</h2>
-           <p>Sou <b>Brendon lina</b> tenho 25 anos, sou desenvolvedor web desde 2020, atuando com PHP, Laravel, Node, React,
+           <p>Sou <b>Brendon lina</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
                Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
                no decorrer desses anos eu atuei em algumas empresas, e também em alguns sistemas própio com enfase
-               nos estudos, enfim esse é meu portfólio fique a vontade.
+               nos estudos, enfim esse é meu portfólio.
            </p>
            <a href="#" class="contact-btn">FALE COMIGO</a>
        </div>
@@ -136,9 +136,125 @@
                     </svg></a>
          
             </div>
-
        </div>
    </section>
+
+   <div class="my-exp">
+        <h1 class="experiencias">Minhas expêriencias profissonais</h1>
+
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    Freela,Estudo e Projetos - 01/2020 até 02/2021.
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                    <p>No decorrer do ano eu tive contato com PHP,HTML,CSS E JavaScript, onde além de estudar
+                        fiz alguns projetos como estudo.
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    Agência F3X - 02/2021 até 07/2021. PJ
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                   <p>Nessa empresa eu participei de diversos projetos o principal foi em um marketplace internacional
+                       onde tinha uma equipe aqui no Rio de Janeiro, e o restante pelo mundo, China, Índia e Paquistão.
+                       Usei Php e Laravel no back-end, dando manutenção, suporte, correção de bugs e novas freatures.
+                       e no front-end utilizando html,css e javascript. Utilizei também o Wordpress para criação
+                       de diversos sites para a empresa, utilizando Elementor.
+                   </p>
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    Learning Update - 08/2021 até 10/2021. PJ
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                    <p>Nessa Empresa eu pude participar de um sistema de educação a distãncia como principal produto
+                        E na criação de um sistema de medicina. Nesses sistemas foram utilizado REACT.JS e NEXT.JS, 
+                        no front-end. e no back-end php com laravel. Minha atuação foi levantar as telas do zero com
+                        essas técnologias, depois do projeto finalizado, meu contrato foi encerrado.
+                    </p>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Freelancer, Clientes e Empresas - 11/2021 até o momento.
+                    </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body"> <p>Nessa nova etapa eu decido focar mais nos meus estudos e projetos 
+                        paralelos pessoas, clientes e empresas. no decorrer desse tempo eu prestei serviços para clientes pessois e para empreas
+                        como por exemplo: MULTTI, eu prestei serviço para resolver freatures novas + bugs por tempo 
+                        determinado. em outra empresa FIOCRUZ, eu pude participar de grande correções no sistema deles,
+                        sistema complexo feito com PHP e Laravel legado, e Bootstrap + Jquery no front. Nessa empresa
+                        eu pude estar participando de, correção de bugs, fratures novas, manutenção e etc. eu presto 
+                        serviço a eles de 02/2022 até o momento. Em paralelo a isso eu faço freelas para clientes pessoais
+                        tanto no front-end quanto no back-end.
+                    </p></div>
+                    </div>
+                </div>
+    </div>
+
+    <div class="meu-form">    
+        <form method="POST" action="/user">
+            @csrf
+            <h1 class="mensagem">Deixe um comentário!</h1>
+            <div class="mb-3">
+                <!-- <label for="exampleFormControlInput1" class="form-label">Nome</label> -->
+                <input type="text" class="form-control" id="validationCustomUsername" name="name" placeholder="Seu nome" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="exampleFormControlInput1" class="form-label">Email</label> -->
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Seu email" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="exampleFormControlTextarea1" class="form-label">Feedback / Mensagem</label> -->
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comentario" placeholder="Seu comentário" required></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="form-control" id="btn-enviar" value="Enviar">
+            </div>
+        </form>
+    </div>
+    @if(count($usuarios) > 0)
+    @foreach($usuarios as $usuario)
+    <div class="comentarios">
+        <div class="card" style="width: 18rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+            <div class="card-body">
+                <h5 class="card-title">Usuario: {{$usuario->name}} </h5>
+                <p class="card-text"> {{$usuario->comentario}} </p>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @else
+        <div class="sem-comentario">
+            <p>Não existe comentários!</p>
+        </div>
+        
+    @endif
    <footer>
 
        <div class="footer">
