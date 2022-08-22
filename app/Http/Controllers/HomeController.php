@@ -43,7 +43,7 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $usuario = new User;
-
+      
         $usuario->name = $request->name;
         $usuario->email = $request->email;
         $usuario->comentario = $request->comentario;

@@ -15,5 +15,5 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::post('/user', [HomeController::class, 'store']);
+Route::post('/', [HomeController::class, 'store']);
 
