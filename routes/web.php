@@ -14,6 +14,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class])->only(['index','create','store']);
 Route::post('/user', [HomeController::class, 'store']);
 
