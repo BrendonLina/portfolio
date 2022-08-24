@@ -244,6 +244,16 @@ footer .footer{
     margin: 30px 12px 12px 10px;
 }
 
+.card #btn-excluir{
+    display: flex;
+    margin-left: 90%;
+    
+}
+
+#btn-excluir a{
+    text-decoration: none;
+    color: white;
+}
 
 
 

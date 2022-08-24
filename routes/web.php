@@ -16,4 +16,16 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/user', [HomeController::class, 'store']);
+Route::get('/login', [HomeController::class, 'create'])->name('/login');
+
+Route::get('/meusprojetos', function(){
+    return view('/meusprojetos');
+});
+Route::get('/portfolio', function(){
+    return view('/portfolio');
+});
+Route::get('/contato', function(){
+    return view('/contato');
+});
+
 

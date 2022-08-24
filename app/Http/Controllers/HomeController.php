@@ -14,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = null;
         $tempoExp = date("2020");
         $atual = date("Y");
         $exp = $atual - $tempoExp;
@@ -21,7 +22,7 @@ class HomeController extends Controller
         $usuarios = User::all();
 
 
-        return view('home', compact("exp","usuarios"));
+        return view('home', compact("exp","usuarios","user"));
     }
 
     /**
@@ -31,7 +32,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        return "Chegou aqui";
     }
 
     /**
