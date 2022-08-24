@@ -255,6 +255,24 @@ footer .footer{
     color: white;
 }
 
+.login{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 20%;
+    
+}
+
+.login .form-control{
+    width: 450px;
+}
+
+.menu-top #logadoo{
+    font-size: 10px;
+}
+.menu-top #logar{
+    font-size: 10px;
+}
 
 
 

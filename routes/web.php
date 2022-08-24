@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AcessoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/user', [HomeController::class, 'store']);
-Route::get('/login', [HomeController::class, 'create'])->name('/login');
+Route::delete('/user/{id}', [HomeController::class, 'destroy']);
+Route::get('/log', [HomeController::class, 'create'])->name('/log');
 
 Route::get('/meusprojetos', function(){
     return view('/meusprojetos');
@@ -27,5 +30,11 @@ Route::get('/portfolio', function(){
 Route::get('/contato', function(){
     return view('/contato');
 });
+
+Route::get('/login', [AcessoController::class, 'login'])->name('/login');
+// Route::post('/logando', [AcessoController::class, 'store']); //só para add adm
+Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
+Route::get('/logado', [AcessoController::class, 'index'])->name('/logado');
+
 
 

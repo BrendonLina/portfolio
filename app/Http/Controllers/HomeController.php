@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\User;
 
+
 class HomeController extends Controller
 {
     /**
@@ -21,8 +22,13 @@ class HomeController extends Controller
 
         $usuarios = User::all();
 
+        if(session()->has('adm'))
+        {          
+            return view('home', compact("exp","usuarios","user"));
+        }
 
         return view('home', compact("exp","usuarios","user"));
+        
     }
 
     /**
@@ -96,6 +102,10 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        
+        return redirect('/');
     }
+
+    
 }

@@ -21,6 +21,11 @@
             <a href="/meusprojetos">Meus Projetos</a>
             <a href="/portfolio">Porfólio</a>
             <a href="/contato" id="botao">Contato</a>
+            @if(session('adm'))
+                <a id="logadoo" href="/logado">Logado</a>
+            @else
+                <a id="logar" href="/login">Logar</a>               
+            @endif
         </div>   
    </nav>
 
@@ -31,9 +36,9 @@
        <div class="footer">
         <h1 id="mylogo">Brendon Lina</h1>
         <ul>
-            <li><a href="#">Meus Projetos</a></li>
-            <li><a href="#">Portfólio</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><a href="/meusprojetos">Meus Projetos</a></li>
+            <li><a href="/portfolio">Portfólio</a></li>
+            <li><a href="/contato">Contato</a></li>
            
         </ul>
        </div>

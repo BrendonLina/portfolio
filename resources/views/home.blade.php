@@ -1,9 +1,10 @@
 @extends('layout.site')
 
 @section('content')
+   
    <header class="header">
        <div class="headline">
-           <h2 id="bem-vindo">Olá,Seja bem vindo!</h2>
+            <h2 id="bem-vindo">Olá,Seja bem vindo!</h2>
            <h2 id="portfolio">Essa é minha História</h2>
            <p>Sou <b>Brendon lina</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
                Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
@@ -160,7 +161,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                 <div class="accordion-body">
-                    <p>Nessa Empresa eu pude participar de um sistema de educação a distãncia como principal produto
+                    <p>Nessa Empresa eu pude participar de um sistema de educação a distancia como principal produto
                         E na criação de um sistema de medicina. Nesses sistemas foram utilizado REACT.JS e NEXT.JS, 
                         no front-end. e no back-end php com laravel. Minha atuação foi levantar as telas do zero com
                         essas técnologias, depois do projeto finalizado, meu contrato foi encerrado.
@@ -179,13 +180,13 @@
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body"> <p>Nessa nova etapa eu decido focar mais nos meus estudos e projetos 
-                        paralelos pessoas, clientes e empresas. no decorrer desse tempo eu prestei serviços para clientes pessois e para empreas
-                        como por exemplo: MULTTI, eu prestei serviço para resolver freatures novas + bugs por tempo 
-                        determinado. em outra empresa FIOCRUZ, eu pude participar de grande correções no sistema deles,
-                        sistema complexo feito com PHP e Laravel legado, e Bootstrap + Jquery no front. Nessa empresa
-                        eu pude estar participando de, correção de bugs, fratures novas, manutenção e etc. eu presto 
-                        serviço a eles de 02/2022 até o momento. Em paralelo a isso eu faço freelas para clientes pessoais
-                        tanto no front-end quanto no back-end.
+                        pessoais, clientes e empresas. no decorrer desse tempo eu prestei serviços para clientes 
+                        pessoais e para empresas como por exemplo: MULTTI, eu prestei serviço para resolver freatures 
+                        novas + bugs por tempo determinado com PHP/Laravel. em outra empresa FIOCRUZ, eu pude participar
+                        de grande correções no sistema deles, sistema complexo feito com PHP e Laravel legado, e Bootstrap 
+                        + Jquery no front. Nessa empresa eu pude estar participando de, correção de bugs, fratures novas, 
+                        manutenção e etc. eu presto serviço a eles de 02/2022 até o momento. Em paralelo a isso eu faço freelas
+                         para clientes pessoais tanto no front-end quanto no back-end.
                     </p></div>
                     </div>
                 </div>
@@ -214,8 +215,12 @@
     <div class="comentarios">
         <div class="card" style="width: 18rem;">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
-            @if($user == 1)
-            <button class="btn btn-danger" id="btn-excluir" type="submit"><a href="{{route('/login')}}">x</a></button>
+            @if(session('adm'))
+            <form method="POST" action="/user/{{ $usuario->id }}">
+                @csrf
+                @method('DELETE')
+            <button class="btn btn-danger" id="btn-excluir" type="submit">x</button>
+            </form>
             @endif
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
