@@ -49,6 +49,22 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required|min:3|max:20',
+            'email' => 'required|max:255',
+            'comentario' => 'min:3|max:50'
+
+        ],[
+            'name.required' => 'Nome é obrigatório!', 
+            'name.min' => 'Nome tem que ter no minimo 3 letras',
+            'name.max' => 'Caracteres de nome máximo de 20 atingido!',  
+            'email.required' => 'Email é obrigatório!', 
+            'email.max' => 'Caracteres de email máximo atingido!', 
+            'comentario.required' => 'Comentário é obrigatório!',
+            'comentario.min' => 'Minimo de 3 caracteres!', 
+            'comentario.max' => 'Máximo de 50 caracteres!', 
+        ]);
+
         $usuario = new User;
       
         $usuario->name = $request->name;

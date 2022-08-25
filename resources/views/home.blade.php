@@ -11,7 +11,7 @@
                no decorrer desses anos eu atuei em algumas empresas, e também em alguns sistemas própio com enfase
                nos estudos, enfim esse é meu portfólio.
            </p>
-           <a href="#" class="contact-btn">FALE COMIGO</a>
+           <a href="https://api.whatsapp.com/send?phone=5521968688942" target="_blank" class="contact-btn">FALE COMIGO</a>
        </div>
        <div class="img-headline">
            <img src="/img/3964906.jpg" alt="programador" style="max-width:100%;">
@@ -179,7 +179,7 @@
                     </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> <p>Nessa nova etapa eu decido focar mais nos meus estudos e projetos 
+                    <div class="accordion-body"> <p>Nessa nova etapa eu decidi focar mais nos meus estudos e projetos 
                         pessoais, clientes e empresas. no decorrer desse tempo eu prestei serviços para clientes 
                         pessoais e para empresas como por exemplo: MULTTI, eu prestei serviço para resolver freatures 
                         novas + bugs por tempo determinado com PHP/Laravel. em outra empresa FIOCRUZ, eu pude participar
@@ -192,25 +192,42 @@
                 </div>
     </div>
 
+    @if(!session('adm'))
     <div class="meu-form">    
         <form action="/user" method="POST" >
             @csrf
+
             <h1 class="mensagem">Deixe um comentário!</h1>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="mb-3">
-                <input type="text" class="form-control" id="validationCustomUsername" name="name" placeholder="Seu nome" required>
+                <input type="text" class="form-control" id="validationCustomUsername" name="name" placeholder="Seu nome" >
             </div>
             <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Seu email" required>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Seu email" >
             </div>
             <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comentario" placeholder="Seu comentário" required></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comentario" placeholder="Seu comentário" ></textarea>
             </div>
             <div class="mb-3">
                 <input type="submit" class="form-control" id="btn-enviar" value="Enviar">
             </div>
         </form>
     </div>
+    @endif
+
     @if(count($usuarios) > 0)
+    @if(session('adm'))
+        <h3 class="coments">Comentários</h3>
+    @endif
+
     @foreach($usuarios as $usuario)
     <div class="comentarios">
         <div class="card" style="width: 18rem;">
