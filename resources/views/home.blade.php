@@ -6,23 +6,54 @@
        <div class="headline">
             <h2 id="bem-vindo">Olá,Seja bem vindo!</h2>
            <h2 id="portfolio">Essa é minha História</h2>
-           <p>Sou <b>Brendon lina</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
+           
+           <p>Sou <b>Brendon Lina</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
                Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
                no decorrer desses anos eu atuei em algumas empresas, e também em alguns sistemas própio com enfase
                nos estudos, enfim esse é meu portfólio.
            </p>
            <a href="https://api.whatsapp.com/send?phone=5521968688942" target="_blank" class="contact-btn">FALE COMIGO</a>
+           
        </div>
        <div class="img-headline">
            <img src="/img/3964906.jpg" alt="programador" style="max-width:100%;">
        </div> 
    </header>
    <section>
+        <div class="cv-info">
+            <!-- Button trigger modal -->
+            <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" style="color:red;">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Site desenvolvido com</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        PHP, Laravel , Mysql , HTML , CSS e JavaScript. 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary"><a href="{{route('/baixar')}}" id="baixar-cv"> Download CV</a></button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+            
        <h2>Minhas experiências pessoais</h2>
        <div class="servicos">
             <div class="card">
                 <img src="/img/codificacao-da-web.png">
-                <h3>Sistema de login com authenticação</h3>
+                <h3>Sistema de Academia</h3>
                 <p>Sistema com busca no banco de dados, com validações e requisições.</p>
                 <p><b>Tecnologias: PHP/Laravel/HTML/CSS/JavaScript</b></p>
         
@@ -38,7 +69,7 @@
 
             <div class="card">
                 <img src="/img/codificacao-da-web.png">
-                <h3>Sistema cadastro de usuario</h3>
+                <h3>Sistema de cadastro de usuários</h3>
                 <p>Sistema com gerenciamento de conta, e com nivel de acesso e validações.</p>
                 <p><b>Tecnologias: PHP/Laravel/HTML/CSS/JavaScript</b></p>
                     <a href="https://www.github.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -239,11 +270,13 @@
             <button class="btn btn-danger" id="btn-excluir" type="submit">x</button>
             </form>
             @endif
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-            </svg>
+            
             <div class="card-body">
-                <h5 class="card-title">User: {{$usuario->name}} </h5>
+                <h5>Comentário:</h5>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg>
+                    <h6 class="card-title"> {{$usuario->name}} </h6>
                 <p class="card-text"> {{$usuario->comentario}} </p>
             </div>
         </div>

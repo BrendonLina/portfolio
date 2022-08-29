@@ -16,10 +16,12 @@ use App\Http\Controllers\AcessoController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('/home');
 Route::post('/user', [HomeController::class, 'store']);
 Route::delete('/user/{id}', [HomeController::class, 'destroy']);
 Route::get('/log', [HomeController::class, 'create'])->name('/log');
+
+Route::get('/baixar', [HomeController::class, 'baixarCv'])->name('/baixar');
 
 Route::get('/meusprojetos', function(){
     return view('/meusprojetos');
@@ -32,9 +34,12 @@ Route::get('/contato', function(){
 });
 
 Route::get('/login', [AcessoController::class, 'login'])->name('/login');
-// Route::post('/logando', [AcessoController::class, 'store']); //só para add adm
+// Route::post('/logado', [AcessoController::class, 'store']); //só para add adm
+
 Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
 Route::get('/logado', [AcessoController::class, 'index'])->name('/logado');
+
+Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar');
 
 
 

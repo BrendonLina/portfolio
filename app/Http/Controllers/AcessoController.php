@@ -76,6 +76,13 @@ class AcessoController extends Controller
 
     }
 
+    public function deslogar()
+    {
+        session()->forget('adm');
+
+        return redirect()->route('/home');
+    }
+
     public function store(request $request)
     {
         // $usuario = new Acesso;

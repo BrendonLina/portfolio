@@ -9,7 +9,7 @@
     <title>Login</title>
 </head>
 <body>
-   
+
     <div class="login">  
         <form action="{{route('/logado')}}" method="POST" >
             @csrf

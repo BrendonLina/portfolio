@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\User;
+use Illuminate\Support\Facades\Storage;
+use PDF;
 
 
 class HomeController extends Controller
@@ -15,12 +17,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $user = null;
         $tempoExp = date("2020");
         $atual = date("Y");
         $exp = $atual - $tempoExp;
-
+        
         $usuarios = User::all();
+
 
         if(session()->has('adm'))
         {          
@@ -121,6 +125,13 @@ class HomeController extends Controller
         User::findOrFail($id)->delete();
         
         return redirect('/');
+    }
+
+    public function baixarCv(){
+
+        // $curriculo = Storage::files();
+      
+        return response()->download(storage_path().'/app/pdf/Brendon-Lina-programador.pdf');
     }
 
     

@@ -210,6 +210,13 @@ footer .footer{
     cursor:pointer;
 }
 
+.cv-info, .info-circle{
+    cursor: pointer;
+    margin-bottom: 15px;  
+    
+}
+
+
 .card a{
     text-decoration:none;
     color: #385a64;
@@ -286,5 +293,25 @@ footer .footer{
     color: white;
     background-color: #385a64;
 }
+
+.card .card-title{
+    display: inline;
+    
+}
+
+.card-body .bi-person-fill{
+    margin-bottom:5px;
+}
+
+.card .card-text{
+    margin-top: 20px;
+}
+
+#baixar-cv{
+ 
+  color:white;
+  text-decoration: none;
+}
+
 
 
