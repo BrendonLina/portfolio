@@ -42,7 +42,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return "Chegou aqui";
+        //
     }
 
     /**

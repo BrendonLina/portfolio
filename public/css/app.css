@@ -313,5 +313,74 @@ footer .footer{
   text-decoration: none;
 }
 
+.andamento{
+    margin-top: 12px;
+    color: blue;
+    font-weight: 600;
+}
 
+.breve{
+    margin-top: 12px;
+    color: red;
+    font-weight: 600;
+}
+
+
+.meu-contato{
+    height: 600px;
+    margin-top: 150px;
+    /* background-color:#385a64; */
+    border-radius: 25px;
+    box-shadow: 2px 2px 25px 2px  grey;
+    color: black;
+    font-weight: 600;
+}
+
+.meu-contato p{
+    font-size: 30px;
+}
+
+.ctt .meu-ctt {
+    margin-bottom: 100px;
+}
+
+.meu-ctt{
+    font-size:40px;
+}
+
+.meu-contato .meu-telefone{
+    display:inline-block;
+    margin-right: 150px;
+    
+}
+
+.meu-contato .meu-email{
+    display:inline-block;
+    
+}
+
+.meu-telefone h6{
+    padding-top: 25px;
+}
+
+.meu-email h6{
+    padding-top: 25px;
+}
+
+.meu-port{
+  /* background-color: #385a64; */
+  border-radius: 25px;
+  margin-top: 180px;
+  box-shadow: 2px 2px 25px 2px  grey;
+  
+  
+}
+
+.meu-port a{
+    color: white;
+}
+
+.meu-port h2{
+    margin-bottom: 30px;
+}
 

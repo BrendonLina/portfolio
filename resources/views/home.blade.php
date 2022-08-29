@@ -1,10 +1,11 @@
 @extends('layout.site')
 
+
 @section('content')
    
    <header class="header">
        <div class="headline">
-            <h2 id="bem-vindo">Olá,Seja bem vindo!</h2>
+            <!-- <h2 id="bem-vindo">Olá,Seja bem vindo!</h2> -->
            <h2 id="portfolio">Essa é minha História</h2>
            
            <p>Sou <b>Brendon Lina</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
@@ -65,6 +66,7 @@
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                     </svg></a>
+                    <div class="andamento">Em Andamento</div>
             </div>
 
             <div class="card">
@@ -80,6 +82,7 @@
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                     </svg></a>
+                    <div class="andamento">Em Andamento</div>
                
             </div>
 
@@ -96,7 +99,7 @@
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                     </svg></a>
-         
+                    <div class="breve">Em Breve</div>
             </div>
 
             <div class="card">
@@ -112,7 +115,7 @@
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                     </svg></a>
-         
+                    <div class="breve">Em Breve</div>
             </div>
 
             <div class="card">
@@ -128,7 +131,7 @@
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                     </svg></a>
-         
+                    <div class="breve">Em Breve</div>
             </div>
 
             <div class="card">
@@ -144,7 +147,7 @@
                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                     </svg></a>
-         
+                    <div class="breve">Em Breve</div>
             </div>
        </div>
    </section>
