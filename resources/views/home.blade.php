@@ -153,7 +153,7 @@
    </section>
 
    <div class="my-exp">
-        <h1 class="experiencias">Minhas expêriencias profissonais</h1>
+        <h1 class="experiencias">Minhas experiências profissonais</h1>
 
         <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
