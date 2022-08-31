@@ -34,10 +34,10 @@ Route::get('/contato', function(){
 });
 
 Route::get('/login', [AcessoController::class, 'login'])->name('/login');
-// Route::post('/logado', [AcessoController::class, 'store']); //só para add adm
+Route::post('/logado', [AcessoController::class, 'store']); //só para add adm
 
 Route::get('/logado', [AcessoController::class, 'index'])->name('/logado');
-Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
+// Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
 
 
 Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar');

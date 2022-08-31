@@ -85,11 +85,11 @@ class AcessoController extends Controller
 
     public function store(request $request)
     {
-        // $usuario = new Acesso;
+        $usuario = new Acesso;
       
-        // $usuario->email = $request->email;
-        // $usuario->password = bcrypt($request->password);
+        $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
 
-        // $usuario->save();
+        $usuario->save();
     }
 }
