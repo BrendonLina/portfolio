@@ -8,7 +8,7 @@
             <!-- <h2 id="bem-vindo">Olá,Seja bem vindo!</h2> -->
            <h2 id="portfolio">Essa é minha História</h2>
            
-           <p>Sou <b>Brendon Lina Mendes</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
+           <p>Sou <b>Brendon Lina </b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
                Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
                no decorrer desses anos eu atuei em algumas empresas, e também em alguns sistemas própio com enfase
                nos estudos, enfim esse é meu portfólio.
