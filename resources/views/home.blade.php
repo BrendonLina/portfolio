@@ -6,7 +6,7 @@
    <header class="header">
        <div class="headline">
             <!-- <h2 id="bem-vindo">Olá,Seja bem vindo!</h2> -->
-           <h2 id="portfolio">Essa é minha História!!!</h2>
+           <h2 id="portfolio">Essa é minha História</h2>
            
            <p>Sou <b>Brendon Lina</b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
                Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
