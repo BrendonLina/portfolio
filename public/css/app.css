@@ -384,3 +384,10 @@ footer .footer{
     margin-bottom: 30px;
 }
 
+.login a{
+    text-decoration: none;
+    display:flex;
+    align-items:flex-end;
+    justify-content: flex-end;
+    margin-top: 6px;
+}

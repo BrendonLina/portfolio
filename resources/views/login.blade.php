@@ -36,6 +36,7 @@
             </div>
             <div class="mb-3">
                 <input type="submit"  class="form-control" id="btn-entrar" value="Entrar">
+                <a href="/">Voltar</a>
             </div>
         </form>
        
