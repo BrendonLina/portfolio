@@ -37,7 +37,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Beauty glow academy</h5>
                     <p class="card-text">Site institucional feito com Wordpress e Elementor</p>
-                    <a href="https://beautyglowacademy.com.br/" target="_blank"class="btn btn-primary">Ver</a>
+                    <a href="{{route('/academia')}}" target="_blank"class="btn btn-primary">Ver</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">

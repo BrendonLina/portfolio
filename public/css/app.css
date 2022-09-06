@@ -216,6 +216,11 @@ footer .footer{
     
 }
 
+.cv-info{
+    margin-top: 100px;
+    text-align: center;
+}
+
 
 .card a{
     text-decoration:none;
@@ -391,3 +396,5 @@ footer .footer{
     justify-content: flex-end;
     margin-top: 6px;
 }
+
+

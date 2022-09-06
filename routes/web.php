@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AcessoController;
+use App\Http\Controllers\academia\AcademiaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,12 @@ Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
 
 
 Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar');
+
+//academia
+
+Route::prefix('academia')->group(function () {
+    Route::get('/', [AcademiaController::class, 'index'])->name('/academia');
+});
 
 
 
