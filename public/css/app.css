@@ -132,7 +132,6 @@ footer .footer{
 .headline{
     margin-left: 10%;
     flex:40%;
-    /* border: 1px solid black; */
 }
 
 .headline h2{
@@ -334,7 +333,6 @@ footer .footer{
 .meu-contato{
     height: 600px;
     margin-top: 150px;
-    /* background-color:#385a64; */
     border-radius: 25px;
     box-shadow: 2px 2px 25px 2px  grey;
     color: black;
@@ -373,7 +371,6 @@ footer .footer{
 }
 
 .meu-port{
-  /* background-color: #385a64; */
   border-radius: 25px;
   margin-top: 180px;
   box-shadow: 2px 2px 25px 2px  grey;
