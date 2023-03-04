@@ -287,6 +287,7 @@
                 </svg>
                     <h6 class="card-title"> {{$usuario->name}} </h6>
                 <p class="card-text"> {{$usuario->comentario}} </p>
+                <p class="card-text"> {{$usuario->updated_at = substr($usuario->updated_at, 0,10)}} </p>
             </div>
         </div>
     </div>

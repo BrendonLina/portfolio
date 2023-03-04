@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\models\Acesso;
+use App\models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,13 +14,15 @@ class AcessoController extends Controller
     {
         $sessao = $this->checkSession();
 
+        $usuarios = User::all();
+
         if($sessao == "" ?? null ?? 0){
             return redirect('/login');
         }
       
         if($this->checkSession())
         {          
-            return view('/logado');
+            return view('/logado', compact('usuarios'));
         }
     }
 

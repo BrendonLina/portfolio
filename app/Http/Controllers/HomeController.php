@@ -74,7 +74,7 @@ class HomeController extends Controller
         $usuario->name = $request->name;
         $usuario->email = $request->email;
         $usuario->comentario = $request->comentario;
-
+        
         $usuario->save();
 
         return redirect('/');
@@ -129,9 +129,10 @@ class HomeController extends Controller
 
     public function baixarCv(){
 
-        // $curriculo = Storage::files();
+        // return $curriculo = Storage::files();
       
-        return response()->download(storage_path().'/app/pdf/Brendon-Lina-programador.pdf');
+        // return response()->download(storage_path().'/app/pdf/Brendon-Lina-programador.pdf');
+        return Storage::download('Brendon-Lina-programador.pdf');
     }
 
     
