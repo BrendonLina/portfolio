@@ -14,7 +14,7 @@ class AcessoController extends Controller
     {
         $sessao = $this->checkSession();
 
-        $usuarios = User::all();
+        // $usuarios = User::all();
 
         if($sessao == "" ?? null ?? 0){
             return redirect('/login');
@@ -22,7 +22,7 @@ class AcessoController extends Controller
       
         if($this->checkSession())
         {          
-            return view('/logado', compact('usuarios'));
+            return view('/logado');
         }
     }
 
@@ -60,6 +60,8 @@ class AcessoController extends Controller
        $password = trim($request->input('password'));
        
        $usuario = Acesso::where('email', $usuario)->first();
+
+       $user_normal = User::where('email', $usuario)->first();
 
         if(!$usuario)
         {

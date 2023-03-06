@@ -8,7 +8,7 @@
             <!-- <h2 id="bem-vindo">Olá,Seja bem vindo!</h2> -->
            <h2 id="portfolio">Essa é minha História</h2>
            
-           <p>Sou <b>Brendon Lina </b> tenho 25 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, React,
+           <p>Sou <b>Brendon Lina </b> tenho 26 anos, sou desenvolvedor web há {{$exp}} anos, atuando com PHP, Laravel, Node, Angular,
                Html, Css e JavaScript. Atuo principamente com back-end por escolha, mas também sei desenvolver o front-end.
                no decorrer desses anos eu atuei em algumas empresas, e também em alguns sistemas própio com enfase
                nos estudos, enfim esse é meu portfólio.
@@ -132,7 +132,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    Freela,Estudo e Projetos - 01/2020 até 02/2021.
+                    Estudos e Projetos - 01/2020 até 02/2021.
                 </button>
                 </h2>
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
@@ -151,6 +151,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                 <div class="accordion-body">
+                    <h6>Desenvolvedor Back-end</h6>
                    <p>Nessa empresa eu participei de diversos projetos o principal foi em um marketplace internacional
                        onde tinha uma equipe aqui no Rio de Janeiro, e o restante pelo mundo, China, Índia e Paquistão.
                        Usei Php e Laravel no back-end, dando manutenção, suporte, correção de bugs e novas freatures.
@@ -168,6 +169,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                 <div class="accordion-body">
+                    <h6>Desenvolvedor Front-end</h6>
                     <p>Nessa Empresa eu pude participar de um sistema de educação a distancia como principal produto
                         E na criação de um sistema de medicina. Nesses sistemas foram utilizado REACT.JS e NEXT.JS, 
                         no front-end. e no back-end php com laravel. Minha atuação foi levantar as telas do zero com
@@ -186,17 +188,38 @@
                     </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"> <p>Nessa nova etapa eu decidi focar mais nos meus estudos e projetos 
-                        pessoais, clientes e empresas. no decorrer desse tempo eu prestei serviços para clientes 
-                        pessoais e para empresas como por exemplo: MULTTI, eu prestei serviço para resolver freatures 
-                        novas + bugs por tempo determinado com PHP/Laravel. em outra empresa FIOCRUZ, eu pude participar
-                        de grande correções no sistema deles, sistema complexo feito com PHP e Laravel legado, e Bootstrap 
-                        + Jquery no front. Nessa empresa eu pude estar participando de, correção de bugs, fratures novas, 
-                        manutenção e etc. eu presto serviço a eles de 02/2022 até o momento. Em paralelo a isso eu faço freelas
-                         para clientes pessoais tanto no front-end quanto no back-end.
-                    </p></div>
+                        <div class="accordion-body"> 
+                            <h6>Desenvolvedor Fullstack</h6>
+                            <p>Nessa nova etapa eu decidi focar mais nos meus estudos e projetos 
+                                pessoais, clientes e empresas. no decorrer desse tempo eu prestei serviços para clientes 
+                                pessoais e para empresas como por exemplo: MULTTI, eu prestei serviço para resolver freatures 
+                                novas + bugs por tempo determinado com PHP/Laravel. em outra empresa FIOCRUZ, eu pude participar
+                                de grande correções no sistema deles, sistema complexo feito com PHP e Laravel legado, e Bootstrap 
+                                + Jquery no front. Nessa empresa eu pude estar participando de, correção de bugs, fratures novas, 
+                                manutenção e etc. eu presto serviço a eles de 02/2022 até o momento. Em paralelo a isso eu faço freelas
+                                para clientes pessoais tanto no front-end quanto no back-end.
+                            </p>
+                        </div>
                     </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                    Life Tecnologia - 02/2022 até 03/2023.
+                </button>
+                </h2>
+                <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body">
+                    <h6>Desenvolvedor Back-end</h6>
+                    <p>Nessa empresa eu participei na manutenção e melhorias no sistema da FIOCRUZ.
+                        O projeto é de educação, mestrado, doutorado e pós-graduação. Nesse projeto eu atuei com PHP/Laravel no
+                        backend, mas também em alguns momentos eu atuei no frontend com Html,Css,Javascript,jquery,Bootstrap.
+                    </p>
                 </div>
+                </div>
+            </div>
+            </div>
     </div>
 
     <div class="cv-info">
