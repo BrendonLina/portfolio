@@ -270,11 +270,25 @@ footer .footer{
 }
 
 .login{
+      background-color: #385A64;
+      padding: 100px;
+      border-radius: 30px;
+}
+
+.container-login{
     display: flex;
     justify-content:center;
     align-items: center;
-    margin-top: 20%;
-    
+    margin-top: 10%;
+}
+
+.title-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DynaPuff', cursive;
+    color: white;
+    padding-bottom: 10px;
 }
 
 .login .form-control{

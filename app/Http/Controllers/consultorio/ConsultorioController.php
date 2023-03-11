@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\academia;
+namespace App\Http\Controllers\consultorio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AcademiaController extends Controller
+class ConsultorioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AcademiaController extends Controller
      */
     public function index()
     {
-        return view('./academia/index');
+        return view('../consultorio/index');
     }
 
     /**

@@ -60,7 +60,7 @@ class AcessoController extends Controller
        $password = trim($request->input('password'));
        
        $usuario = Acesso::where('email', $usuario)->first();
-
+        
        $user_normal = User::where('email', $usuario)->first();
 
         if(!$usuario)
@@ -70,7 +70,11 @@ class AcessoController extends Controller
 
        if(Hash::check($password, $usuario->password))
        {
-            session()->put('adm', $usuario);
+            // session()->put('adm', $usuario);
+            $request->session()->put("adm",[
+                'usuario' => $usuario,  
+            ]);
+
             return view('/logado', compact('usuario'));
        }
 

@@ -25,6 +25,19 @@ class HomeController extends Controller
         
         $usuarios = User::all();
 
+        // $idade = 1996;
+
+        // $data_hoje = date("Y-m");
+
+        // if($data_hoje == "2023-08"){
+        //     dd("é igual a agosto");
+        // }
+        // else if($data_hoje < "2023-02"){
+        //     dd("ainda não é seu aniversário");
+        // }
+        // else{
+        //     dd("ae seu niver ja passou");
+        // }
 
         if(session()->has('adm'))
         {          

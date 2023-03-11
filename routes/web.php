@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AcessoController;
-use App\Http\Controllers\academia\AcademiaController;
+use App\Http\Controllers\consultorio\ConsultorioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +45,8 @@ Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar'
 
 //academia
 
-Route::prefix('academia')->group(function () {
-    Route::get('/', [AcademiaController::class, 'index'])->name('/academia');
+Route::prefix('consultorio')->group(function () {
+    Route::get('/', [ConsultorioController::class, 'index'])->name('/consultorio');
 });
 
 
