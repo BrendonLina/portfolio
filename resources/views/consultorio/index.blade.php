@@ -4,23 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/consultorio.css">
     <title>Consultório</title>
 </head>
 <body>
-    <nav>
-        <div>
-            <h1>LOGO</h1>
+    <nav class="nav-top">
+        <div class="list">
+            <select name="clinicas" id="clinicas">
+                @foreach($clinicas as $clinica)
+                    <option>Clinica -  {{ $clinica }} </option>
+                @endforeach
+            </select>
         </div>
-        <div>
-            <p>menus</p>
+        <div class="menu-top">
+            <a href="{{route('/agendamento')}}">Agendamento</a>
+            <a href="">Área do Médico</a>
         </div>
-        <div>
-            <p>hamburguer</p>
-        </div>
+       <div class="logo">
+        <h1>LOGO</h1>
+            <div class="menu-principal">
+                <a href="">Especialidades</a>
+                <a href="">Equipe</a>
+                <a href="">Fale conosco</a>
+            </div>
+       </div>
     </nav>
+    
 
-    <header>
-
+    <header class="header">
+        <div class="cont-header">
+            <h1>header</h1>
+        </div>
+        <div class="cont-header2">
+            <h1>header 2</h1>
+        </div>
     </header>
 
     <section>

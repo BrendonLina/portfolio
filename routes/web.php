@@ -43,10 +43,12 @@ Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
 
 Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar');
 
-//academia
+//consultório
 
 Route::prefix('consultorio')->group(function () {
     Route::get('/', [ConsultorioController::class, 'index'])->name('/consultorio');
+    Route::get('/agendamento', [ConsultorioController::class, 'agendamento'])->name('/agendamento');
+    Route::post('/agendamento', [ConsultorioController::class, 'agendamentoPost'])->name('/agendamento');
 });
 
 
