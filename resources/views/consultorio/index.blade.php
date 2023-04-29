@@ -19,7 +19,7 @@
         </div>
         <div class="menu-top">
             <a href="{{route('/agendamento')}}">Agendamento</a>
-            <a href="">Área do Médico</a>
+            <a href="{{route('/areadomedico')}}">Área do Médico</a>
         </div>
        <div class="logo">
         <h1>LOGO</h1>

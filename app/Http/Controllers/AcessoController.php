@@ -70,7 +70,6 @@ class AcessoController extends Controller
 
        if(Hash::check($password, $usuario->password))
        {
-            // session()->put('adm', $usuario);
             $request->session()->put("adm",[
                 'usuario' => $usuario,  
             ]);
@@ -98,6 +97,7 @@ class AcessoController extends Controller
       
         // $usuario->email = $request->email;
         // $usuario->password = bcrypt($request->password);
+        // $usuario->name = "Brendon Lina";
 
         // $usuario->save();
     }

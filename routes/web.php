@@ -38,17 +38,29 @@ Route::get('/login', [AcessoController::class, 'login'])->name('/login');
 // Route::post('/logado', [AcessoController::class, 'store']); //só para add adm
 
 Route::get('/logado', [AcessoController::class, 'index'])->name('/logado');
-Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado');
+Route::post('/logado', [AcessoController::class, 'logado'])->name('/logado'); //desabilitar quando /logado metodo store estiver habilitado
 
 
 Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar');
 
-//consultório
+//consultorio ADM
+Route::prefix('consultorio/adm')->group(function () {
+    Route::get('/', [ConsultorioController::class, 'login'])->name('/consultorio/adm/login');
+    Route::get('/dash-adm', [ConsultorioController::class, 'logado'])->name('/dash-adm');
+    Route::post('/dash-adm', [ConsultorioController::class, 'logado'])->name('/dash-adm'); //desabilitar para add adm do consultorio
+    // Route::post('/dash-adm', [ConsultorioController::class, 'store'])->name('/dash-adm-store'); //habilitar pra add adm do consultorio
+});
 
+//consultório
 Route::prefix('consultorio')->group(function () {
     Route::get('/', [ConsultorioController::class, 'index'])->name('/consultorio');
     Route::get('/agendamento', [ConsultorioController::class, 'agendamento'])->name('/agendamento');
     Route::post('/agendamento', [ConsultorioController::class, 'agendamentoPost'])->name('/agendamento');
+    Route::get('/areadomedico', [ConsultorioController::class, 'areadomedico'])->name('/areadomedico');
+    Route::post('/areadomedico', [ConsultorioController::class, 'areadomedicoPost'])->name('/areadomedico');
+    Route::get('/cadastro', [ConsultorioController::class, 'cadastro'])->name('/cadastro');
+    Route::post('/cadastro', [ConsultorioController::class, 'cadastroPost'])->name('/cadastro');
+
 });
 
 

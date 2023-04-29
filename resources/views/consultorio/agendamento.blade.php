@@ -12,6 +12,14 @@
         <input type="text" name="nome" placeholder="Nome">
         <input type="email" name="email" placeholder="Email">
         <input type="text" name="cpf" placeholder="Cpf">
+        <input type="text" name="idade" placeholder="Idade">
+        <input type="text" name="telefone" placeholder="Telefone">
+        <input type="date" name="data_consulta" placeholder="data_consulta">
+        <select>
+            @foreach($medicos as $medico)
+                <option>Dr - {{ $medico }} </option>
+            @endforeach
+        </select>
         <p>Clinicas</p>
         <select name="clinica" id="clinicas_agendamento">
             @foreach($clinicas as $clinica)
@@ -24,9 +32,6 @@
                 <option>{{ $plano }}</option>
             @endforeach
         </select>
-        <input type="text" name="idade" placeholder="Idade">
-        <input type="text" name="telefone" placeholder="Telefone">
-        <input type="date" name="data_consulta" placeholder="data_consulta">
         <select>
             @foreach($horarios_consulta as $horario_consulta)
                 <option>{{ $horario_consulta }}</option>
