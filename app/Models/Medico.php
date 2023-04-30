@@ -12,5 +12,13 @@ class Medico extends Model
     protected $fillable = [
         
         'nome',
+        'idade',
+        'cpf',
+        'especialidade',
+        'horarios_disponiveis',
+        'password',
+        'imagem',
+        'status',
+        'email'
     ];
 }

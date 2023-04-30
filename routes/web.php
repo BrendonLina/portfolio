@@ -46,9 +46,14 @@ Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar'
 //consultorio ADM
 Route::prefix('consultorio/adm')->group(function () {
     Route::get('/', [ConsultorioController::class, 'login'])->name('/consultorio/adm/login');
-    Route::get('/dash-adm', [ConsultorioController::class, 'index'])->name('/dash-adm');
+    Route::get('/dash-adm', [ConsultorioController::class, 'verificaSessao'])->name('/dash-adm');
     Route::post('/dash-adm', [ConsultorioController::class, 'logado'])->name('/dash-adm'); //desabilitar para add adm do consultorio
     // Route::post('/dash-adm', [ConsultorioController::class, 'store'])->name('/dash-adm-store'); //habilitar pra add adm do consultorio
+    Route::get('/deslogarAdm', [ConsultorioController::class, 'deslogarAdm'])->name('/deslogarAdm');
+    Route::get('/clinica', [ConsultorioController::class, 'clinica'])->name('/clinica');
+    Route::post('/clinica', [ConsultorioController::class, 'clinicaPost'])->name('/clinica');
+    Route::get('/medico', [ConsultorioController::class, 'medico'])->name('/medico');
+    Route::delete('/medico/{id}', [ConsultorioController::class, 'reprovar']);
 });
 
 //consultório

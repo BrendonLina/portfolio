@@ -20,6 +20,9 @@
         <div class="menu-top">
             <a href="{{route('/agendamento')}}">Agendamento</a>
             <a href="{{route('/areadomedico')}}">Área do Médico</a>
+            @if(session('admConsultorio'))
+            <a href="{{'/consultorio/adm/dash-adm'}}">Dashboard</a>
+            @endif
         </div>
        <div class="logo">
         <h1>LOGO</h1>

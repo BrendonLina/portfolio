@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\models\Paciente;
 use App\models\Medico;
 use App\models\AdmConsultorio;
+use App\models\Clinica;
 
 
 class ConsultorioController extends Controller
@@ -37,27 +38,8 @@ class ConsultorioController extends Controller
         // }
 
         $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
-        
-        $sessao = $this->checkSession();
-
-        // $usuarios = User::all();
-
-        if($sessao == "" ?? null ?? 0){
-            return redirect('../consultorio/adm');
-        }
-      
-        if($this->checkSession())
-        {          
-            return view('/../consultorio/adm/dash');
-            // dd("hero");
-        }
-       
-        // return view('../consultorio/index', compact('clinicas'));
-    }
-
-    private function checkSession()
-    {
-        return session()->has('admConsultorio');
+    
+        return view('../consultorio/index', compact('clinicas'));
     }
 
     /**
@@ -186,27 +168,33 @@ class ConsultorioController extends Controller
 
     public function cadastro()
     {
-        
+
         return view('../consultorio/cadastro');
     }
 
     public function cadastroPost(Request $request)
     {
         
+        // $confereMedico = Medico::get()
+        // ->where('nome');
+
+
        $medico = new Medico;
         
         $medico->nome =  $request->nome;
         $medico->idade =  $request->idade;
         $medico->email =  $request->email;
         $medico->cpf =  $request->cpf;
-        $medico->password =  $request->password;
+        $medico->password =  bcrypt($request->password);
         $medico->imagem =  $request->imagem;
         $medico->especialidade =  $request->especialidade;
+        $medico->horarios_disponiveis =  $request->horarios_disponiveis;
+        $medico->status =  0;
         
         
         $medico->save();
 
-        // return view('../consultorio/cadastro');
+        return view('../consultorio/cadastro');
     }
 
     public function login(){
@@ -253,11 +241,94 @@ class ConsultorioController extends Controller
         // return view('../consultorio/adm/dash');
     }
 
-    public function deslogar(){
+    public function deslogarAdm(){
 
         session()->forget('admConsultorio');
 
-        return redirect()->route('/../consultorio');
+        return redirect()->route('/consultorio');
     }
+
+    public function verificaSessao(){
+
+        $sessao = $this->checkSession();
+
+        if($sessao == "" ?? null ?? 0){
+            return redirect('../consultorio/adm');
+        }
+      
+        if($this->checkSession())
+        {          
+            return view('/../consultorio/adm/dash');
+            
+        }
+    }
+
+    private function checkSession()
+    {
+        return session()->has('admConsultorio');
+    }
+
+    public function clinica(){
+
+        $sessao = $this->checkSession();
+
+        if($sessao == "" ?? null ?? 0){
+            return redirect('../consultorio/adm');
+        }
+      
+        if($this->checkSession())
+        {          
+            return view('../consultorio/adm/clinica');
+            
+        }
+
+        // return view('../consultorio/adm/clinica');
+    }
+
+    public function clinicaPost(Request $request){
+
+        $this->validate($request,[
+            'clinica' => 'required',
+            'plano' => 'required'
+
+        ],[
+            'clinica.required' => 'Clinica precisa ser preenchida!', 
+            'plano.required' => 'Plano precisa ser preenchido', 
+        ]);
+
+        $clinica = new Clinica;
+
+        $clinica->clinicas = $request->clinica;
+        $clinica->planos = $request->plano;
+
+        $clinica->save();
+
+        // return view('../consultorio/adm/clinica');
+        return redirect()->back()->with('sucess', 'Clinica cadastrada com sucesso!');
+        
+    }
+
+    public function medico(){
+        $medico = Medico::all();
+        $confereMedico = Medico::get()
+        ->where('nome');
+
+        return view('../consultorio/adm/medico', compact('confereMedico','medico'));
+    }
+
+    public function reprovar($id){
+
+        Medico::findOrFail($id)->delete();
+        
+        return redirect('../consultorio/adm/medico');
+        
+    }
+    // public function aprovar($id){
+
+    //     Medico::findOrFail($id)->update();
+        
+    //     return redirect('../consultorio/adm/medico');
+        
+    // }
 
 }

@@ -17,6 +17,7 @@
         <input type="password" placeholder="Confirme a senha" name="password_confirm">
         <input type="text" placeholder="sua foto" name="imagem">
         <input type="text" placeholder="Especialidade" name="especialidade">
+        <input type="text" placeholder="Horario" name="horarios_disponiveis">
         <button type="submit">Cadastrar</button>
         <a href="{{ route('/areadomedico') }}">Já tem cadastro? Entre!</a>
     </form>

@@ -11,9 +11,9 @@
         @csrf
 
         @if(session('danger'))
-                <div class="alert alert-danger">
-                    {{session('danger')}}
-                </div>
+            <div class="alert alert-danger">
+                 {{session('danger')}}
+            </div>
         @endif
         {{-- <input type="text" name="nome" placeholder="Seu nome"> habilitar quando for add um adm --}}
         <input type="email" name="email" placeholder="Seu email">
