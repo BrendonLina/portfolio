@@ -5,6 +5,7 @@ namespace App\Http\Controllers\consultorio;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\models\Paciente;
 use App\models\Medico;
 use App\models\AdmConsultorio;
@@ -18,9 +19,7 @@ class ConsultorioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
-        
+    {        
         // if($clinicas && $clinicas != ''){
         //     return response()->json([
         //         'message' => 'Sucesso', 
@@ -36,8 +35,29 @@ class ConsultorioController extends Controller
         //         $vazio
         //     ]);
         // }
+
+        $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
+        
+        $sessao = $this->checkSession();
+
+        // $usuarios = User::all();
+
+        if($sessao == "" ?? null ?? 0){
+            return redirect('../consultorio/adm');
+        }
+      
+        if($this->checkSession())
+        {          
+            return view('/../consultorio/adm/dash');
+            // dd("hero");
+        }
        
-        return view('../consultorio/index', compact('clinicas'));
+        // return view('../consultorio/index', compact('clinicas'));
+    }
+
+    private function checkSession()
+    {
+        return session()->has('admConsultorio');
     }
 
     /**
@@ -195,8 +215,49 @@ class ConsultorioController extends Controller
 
     public function logado(Request $request){
 
-        
-        return view('../consultorio/adm/dash');
+        $this->validate($request,[
+            'email' => 'required',
+            'password' => 'required'
+
+        ],[
+            'email.required' => 'Email é obrigatório!', 
+            'password.required' => 'Senha é obrigatório!', 
+        ]);
+
+        $admConsultorio = trim($request->input('email'));
+        $password = trim($request->input('password'));
+
+        $admConsultorio = AdmConsultorio::where('email', $admConsultorio)->first();
+
+        // dd($admConsultorio);
+
+        if(!$admConsultorio)
+        {
+            return redirect()->back()->with('danger', 'Email ou senha inválida!');
+        }
+
+       if(Hash::check($password, $admConsultorio->password))
+       {
+            $request->session()->put("admConsultorio",[
+                'admConsultorio' => $admConsultorio,  
+            ]);
+
+            return view('/../consultorio/adm/dash', compact('admConsultorio'));
+       }
+
+       else
+       {
+           return redirect()->back()->with('danger', 'Email ou senha inválida!');
+       }
+
+        // return view('../consultorio/adm/dash');
+    }
+
+    public function deslogar(){
+
+        session()->forget('admConsultorio');
+
+        return redirect()->route('/../consultorio');
     }
 
 }

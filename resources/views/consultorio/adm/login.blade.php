@@ -9,9 +9,21 @@
 <body>
     <form action="{{route('/dash-adm')}}" method="post">
         @csrf
-        {{-- <input type="text" name="nome" placeholder="Seu nome"> //habilitar quando for add um adm--}}
+
+        @if(session('danger'))
+                <div class="alert alert-danger">
+                    {{session('danger')}}
+                </div>
+        @endif
+        {{-- <input type="text" name="nome" placeholder="Seu nome"> habilitar quando for add um adm --}}
         <input type="email" name="email" placeholder="Seu email">
+        @error('email')
+        <span>{{ $message }}</span>
+        @enderror
         <input type="password" name="password" placeholder="Sua senha">
+        @error('password')
+        <span>{{ $message }}</span>
+        @enderror
         <button type="submit"> Entrar </button>
     </form>
 </body>

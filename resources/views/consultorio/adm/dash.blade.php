@@ -8,5 +8,7 @@
 </head>
 <body>
     <h1>Seja bem-vindo</h1>
+    <p>Olá {{session()->get('admConsultorio.admConsultorio.nome')}}</p>
+    <button type="submit" name="sair"><a href="{{route('/deslogar')}}">Sair</a></button>
 </body>
 </html>

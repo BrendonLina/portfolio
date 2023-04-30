@@ -46,7 +46,7 @@ Route::get('/deslogar', [AcessoController::class, 'deslogar'])->name('/deslogar'
 //consultorio ADM
 Route::prefix('consultorio/adm')->group(function () {
     Route::get('/', [ConsultorioController::class, 'login'])->name('/consultorio/adm/login');
-    Route::get('/dash-adm', [ConsultorioController::class, 'logado'])->name('/dash-adm');
+    Route::get('/dash-adm', [ConsultorioController::class, 'index'])->name('/dash-adm');
     Route::post('/dash-adm', [ConsultorioController::class, 'logado'])->name('/dash-adm'); //desabilitar para add adm do consultorio
     // Route::post('/dash-adm', [ConsultorioController::class, 'store'])->name('/dash-adm-store'); //habilitar pra add adm do consultorio
 });
