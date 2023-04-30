@@ -36,9 +36,8 @@ class ConsultorioController extends Controller
         //         $vazio
         //     ]);
         // }
-
-        $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
-    
+        $clinicas = Clinica::where('planos', '=', 'unimed')->get();
+        
         return view('../consultorio/index', compact('clinicas'));
     }
 
@@ -168,16 +167,17 @@ class ConsultorioController extends Controller
 
     public function cadastro()
     {
+        $sessao = $this->checkSession();
+
+        if($sessao){
+            return redirect('../consultorio/adm/dash-adm');
+        }
 
         return view('../consultorio/cadastro');
     }
 
     public function cadastroPost(Request $request)
     {
-        
-        // $confereMedico = Medico::get()
-        // ->where('nome');
-
 
        $medico = new Medico;
         
@@ -198,6 +198,13 @@ class ConsultorioController extends Controller
     }
 
     public function login(){
+
+        $sessao = $this->checkSession();
+
+        if($sessao){
+            return redirect('../consultorio/adm/dash-adm');
+        }
+
         return view('../consultorio/adm/login');
     }
 
@@ -309,11 +316,20 @@ class ConsultorioController extends Controller
     }
 
     public function medico(){
-        $medico = Medico::all();
-        $confereMedico = Medico::get()
-        ->where('nome');
 
-        return view('../consultorio/adm/medico', compact('confereMedico','medico'));
+        $sessao = $this->checkSession();
+
+        if($sessao == "" ?? null ?? 0){
+            return redirect('../consultorio/adm');
+        }
+
+        // $medico = Medico::all();
+
+        $confereMedico = Medico::get()
+        ->where('nome')
+        ->where('status', '=', 0);
+
+        return view('../consultorio/adm/medico', compact('confereMedico'));
     }
 
     public function reprovar($id){
