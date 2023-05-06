@@ -13,13 +13,24 @@
     @endif
 
     <h3>Médicos a serem avaliados</h3>
+
+    @if(session('success'))
+        <div class="alert alert-sucess">
+            {{session('success')}}
+        </div>
+    @endif
+
+    @if($confereStatus == 0)
+        <p>Não há médicos para aprovar!</p>
+    @endif
+    
     @foreach($confereMedico as $medi)
     <p>{{$medi->nome}}</p>
-        {{-- <form method="POST" action="/consultorio/adm/medico/{{ $medi->id }}">
+        <form method="POST" action="/consultorio/adm/medico/{{ $medi->id }}">
             @csrf
-            @method('UPDATE')
-            <button class="btn btn-primary" id="btn-excluir" type="submit">Aprovar</button>
-        </form> --}}
+            @method('PUT')
+            <button class="btn btn-primary" id="btn-primary" type="submit" name="status">Aprovar</button>
+        </form>
         <form method="POST" action="/consultorio/adm/medico/{{ $medi->id }}">
             @csrf
             @method('DELETE')

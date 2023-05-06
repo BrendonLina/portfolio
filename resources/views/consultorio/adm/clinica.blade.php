@@ -12,7 +12,7 @@
     @endif
     <h1>Clinica</h1>
 
-    @if(session('sucess'))
+    @if(session('success'))
                 <div class="alert alert-sucess">
                     {{session('sucess')}}
                 </div>

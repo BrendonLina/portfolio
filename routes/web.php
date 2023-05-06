@@ -54,6 +54,9 @@ Route::prefix('consultorio/adm')->group(function () {
     Route::post('/clinica', [ConsultorioController::class, 'clinicaPost'])->name('/clinica');
     Route::get('/medico', [ConsultorioController::class, 'medico'])->name('/medico');
     Route::delete('/medico/{id}', [ConsultorioController::class, 'reprovar']);
+    Route::put('/medico/{id}', [ConsultorioController::class, 'aprovar']);
+    Route::get('/medicosAtivos', [ConsultorioController::class, 'medicosAtivos'])->name('/medicosAtivos');
+    Route::delete('/medicosAtivos/{id}', [ConsultorioController::class, 'medicosAtivosDelete']);
 });
 
 //consultório

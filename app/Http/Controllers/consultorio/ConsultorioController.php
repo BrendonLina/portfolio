@@ -130,7 +130,7 @@ class ConsultorioController extends Controller
         $paciente->plano =  $request->plano;
         $paciente->idade =  $request->idade;
         $paciente->telefone =  $request->telefone;
-        // $paciente->data_consulta =  $request->data_consulta;
+        $paciente->data_consulta =  $request->data_consulta;
 
         // $horarioDisponivelMedico = $request->data_consulta;
         
@@ -147,12 +147,20 @@ class ConsultorioController extends Controller
 
     public function agendamento()
     {
-        $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
-        $planos = ['Unimed', 'Amil', 'Bradesco', 'Assim'];
-        $horarios_consulta = ['08:00','09:00','10:00','11:00','12:00','14:00','15:00','16:00','17:00','18:00','19:00'];
-        $medicos = ['Médico' => 'Mario Silva','Médica' => 'Helena Costa','Médica' => 'Gabriela Swte','Médico' => 'João Carlos'];
-        
-        return view('../consultorio/agendamento', compact('clinicas', 'planos','horarios_consulta','medicos'));
+        // $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
+        // $planos = ['Unimed', 'Amil', 'Bradesco', 'Assim'];
+        // $horarios_consulta = ['08:00','09:00','10:00','11:00','12:00','14:00','15:00','16:00','17:00','18:00','19:00'];
+        // $medicos = ['Médico' => 'Mario Silva','Médica' => 'Helena Costa','Médica' => 'Gabriela Swte','Médico' => 'João Carlos'];
+
+        // $todasClinicas = Clinica::all();
+       
+        $clinicas = Clinica::where('clinicas', 'tijuca')
+        ->where('planos', '<>' , 'abcde')
+        ->get();
+
+        $medicos = Medico::where('status', '=' , 1)->get();
+
+        return view('../consultorio/agendamento', compact('clinicas','medicos'));
     }
 
     public function areadomedico()
@@ -311,7 +319,7 @@ class ConsultorioController extends Controller
         $clinica->save();
 
         // return view('../consultorio/adm/clinica');
-        return redirect()->back()->with('sucess', 'Clinica cadastrada com sucesso!');
+        return redirect()->back()->with('success', 'Clinica cadastrada com sucesso!');
         
     }
 
@@ -323,28 +331,53 @@ class ConsultorioController extends Controller
             return redirect('../consultorio/adm');
         }
 
-        // $medico = Medico::all();
+        $confereStatus = Medico::where('status', '=' , 0)->count();
 
         $confereMedico = Medico::get()
         ->where('nome')
         ->where('status', '=', 0);
 
-        return view('../consultorio/adm/medico', compact('confereMedico'));
+        return view('../consultorio/adm/medico', compact('confereMedico','confereStatus'));
     }
 
     public function reprovar($id){
 
         Medico::findOrFail($id)->delete();
         
-        return redirect('../consultorio/adm/medico');
+        return redirect()->back()->with('success', 'Médico reprovado com sucesso');
         
     }
-    // public function aprovar($id){
+    public function aprovar(Request $request, $id){
 
-    //     Medico::findOrFail($id)->update();
+        $aprovaMedico = Medico::find($id);
+        $aprovaMedico->status = 1;
+
+        $aprovaMedico->update();
+
+        return redirect()->back()->with('success', 'Médico aprovado com sucesso!');
         
-    //     return redirect('../consultorio/adm/medico');
-        
-    // }
+    }
+
+    public function medicosAtivos(){
+
+        $sessao = $this->checkSession();
+
+        if($sessao == "" ?? null ?? 0){
+            return redirect('../consultorio/adm');
+        }
+
+        $confereStatus = Medico::where('status', '=' , 1)->count();
+
+        $medicoAtivo = Medico::where('status', '=', 1)->get();
+    
+        return view('../consultorio/adm/medicosAtivos', compact('medicoAtivo','confereStatus'));
+    }
+
+    public function medicosAtivosDelete($id){
+        // $medicoAtivo = Medico::where('status', '=', 1);
+        Medico::findOrFail($id)->delete();
+
+        return redirect()->back()->with('success', 'Médico exluido com sucesso!');
+    }
 
 }

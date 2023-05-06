@@ -12,6 +12,7 @@
     <button type="submit" name="home"><a href="{{route('/consultorio')}}">Home</a></button>
     <button type="submit" name="home"><a href="{{route('/clinica')}}">Adicinar Clinica</a></button>
     <button type="submit" name="home"><a href="{{route('/medico')}}">Médico pendente</a></button>
+    <button type="submit" name="home"><a href="{{route('/medicosAtivos')}}">Médico Ativos</a></button>
     <button type="submit" name="sair"><a href="{{route('/deslogarAdm')}}">Sair</a></button>
 </body>
 </html>

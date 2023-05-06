@@ -20,6 +20,7 @@
         <input type="text" placeholder="Horario" name="horarios_disponiveis">
         <button type="submit">Cadastrar</button>
         <a href="{{ route('/areadomedico') }}">Já tem cadastro? Entre!</a>
+        <a href="{{ route('/consultorio') }}">Voltar</a>
     </form>
     
 </body>

@@ -17,26 +17,26 @@
         <input type="date" name="data_consulta" placeholder="data_consulta">
         <select>
             @foreach($medicos as $medico)
-                <option>Dr - {{ $medico }} </option>
+                <option>Dr - {{ $medico->nome }} </option>
             @endforeach
         </select>
         <p>Clinicas</p>
         <select name="clinica" id="clinicas_agendamento">
             @foreach($clinicas as $clinica)
-                <option>Clinica - {{ $clinica }}</option>
+                <option>Clinica - {{ $clinica->clinicas }}</option>
             @endforeach
         </select>
         <p>Planos aceitos</p>
         <select name="plano" id="clinicas_agendamento">
-            @foreach($planos as $plano)
-                <option>{{ $plano }}</option>
+            @foreach($clinicas as $clinica)
+                <option>{{ $clinica->planos }}</option>
             @endforeach
         </select>
-        <select>
+        {{-- <select>
             @foreach($horarios_consulta as $horario_consulta)
                 <option>{{ $horario_consulta }}</option>
             @endforeach
-        </select>
+        </select> --}}
         <button type="submit">AGENDAR CONSULTA</button>
     </form>
 </body>
