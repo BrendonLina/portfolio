@@ -175,6 +175,7 @@ class ConsultorioController extends Controller
 
     public function cadastro()
     {
+        
         $sessao = $this->checkSession();
 
         if($sessao){
@@ -182,12 +183,19 @@ class ConsultorioController extends Controller
         }
 
         return view('../consultorio/cadastro');
+        
     }
 
     public function cadastroPost(Request $request)
     {
+        $this->validate($request,[
+            'email' => 'unique:medicos'
 
-       $medico = new Medico;
+        ],[
+             'email.unique' => 'Email já utilizado', 
+        ]);
+
+        $medico = new Medico;
         
         $medico->nome =  $request->nome;
         $medico->idade =  $request->idade;

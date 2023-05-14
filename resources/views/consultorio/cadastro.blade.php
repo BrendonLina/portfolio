@@ -9,9 +9,13 @@
 <body>
     <form action="{{route('/cadastro')}}" method="post">
         @csrf
+        
         <input type="text" placeholder="Seu nome" name="nome">
         <input type="number" placeholder="Idade" name="idade">
         <input type="email" placeholder="Seu email" name="email">
+            @error('email')
+                <span>{{$message}}</span>
+            @enderror
         <input type="cpf" placeholder="CPF" name="cpf">
         <input type="password" placeholder="Digite uma senha" name="password">
         <input type="password" placeholder="Confirme a senha" name="password_confirm">
