@@ -9,10 +9,22 @@
 </head>
 <body>
     <h3>Entre</h3>
-        <form action="{{route('/areadomedico')}}" method="post">
+        <form action="{{route('/dashboard')}}" method="post">
             @csrf
+
+            @if(session('danger'))
+                <div class="alert alert-danger">
+                    {{session('danger')}}
+                </div>
+            @endif
             <input type="email" placeholder="Email" id="email" name="email">
+                @error('email')
+                    <span>{{ $message }}</span>
+                @enderror
             <input type="password" placeholder="Senha" id="password" name="password">
+                @error('password')
+                    <span>{{ $message }}</span>
+                @enderror
             <button type="submit">Entrar</button>
             <a href="{{ route('/cadastro') }}">Inscreva-se</a>
         </form>

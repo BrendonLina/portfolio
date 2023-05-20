@@ -35,16 +35,16 @@
             <div class="card" style="width: 18rem;">
                 <img src="/img/bruna.jpeg"  width="80" height="80" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Beauty glow academy</h5>
-                    <p class="card-text">Site institucional feito com Wordpress e Elementor</p>
+                    <h5 class="card-title">Sistema de Consultório Médico</h5>
+                    <p class="card-text">Sistema com todo o fluxo e gerênciamento de clinicas médicas.</p>
                     <a href="{{route('/consultorio')}}" target="_blank"class="btn btn-primary">Ver</a>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
                 <img src="/img/delta.jpg" width="80" height="80" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Delltaflex</h5>
-                    <p class="card-text">Site de vendas de estofados feito com Wordpress e Elementor</p>
+                    <h5 class="card-title">Sistema de portal de empregos</h5>
+                    <p class="card-text">Sistema para divulgação de vagas, com controle de quem posta e de quem se candidatou</p>
                     <a href="https://delltaflex.com.br/" target="_blank" class="btn btn-primary">Ver</a>
                 </div>
             </div>
@@ -52,8 +52,8 @@
             <div class="card" style="width: 18rem;">
                 <img src="/img/destack.jpg" width="80" height="80" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Destack empreiteira</h5>
-                    <p class="card-text">Site de construção civil feito com Wordpress e Elementor</p>
+                    <h5 class="card-title">Sistema para aluguel de veículos</h5>
+                    <p class="card-text">Sistema de gestão, incluindo login, cadastro e nivel de permissão de usuário</p>
                     <a href="https://destackempreiteira.com/" target="_blank" class="btn btn-primary">Ver</a>
                 </div>
             </div>

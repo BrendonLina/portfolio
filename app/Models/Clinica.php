@@ -12,6 +12,9 @@ class Clinica extends Model
     protected $fillable = [
         
         'clinicas',
-        'planos'
     ];
+
+    public function medicos(){
+        return $this->belongsToMany('App\Models\Medico');
+    }
 }

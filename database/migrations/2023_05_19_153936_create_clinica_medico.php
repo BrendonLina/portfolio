@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clinicas', function (Blueprint $table) {
-            $table->id();
-            $table->string('clinicas')->nullable();
-            $table->string('planos')->nullable();
+        Schema::create('clinica_medico', function (Blueprint $table) {
+            $table->foreignId('clinica_id')->constrained();
+            $table->foreignId('medico_id')->constrained(); 
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clinicas');
+        Schema::dropIfExists('clinica_medico');
     }
 };

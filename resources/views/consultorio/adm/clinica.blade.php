@@ -25,8 +25,8 @@
         @error('clinica')
         <span>{{$message}}</span>
         @enderror
-        <input type="text" name="plano" placeholder="Nome do Plano">
-        @error('plano')
+        <input type="text" name="local" placeholder="Nome da localidade">
+        @error('local')
         <span>{{$message}}</span>
         @enderror
         <button type="submit">Cadastrar</button>

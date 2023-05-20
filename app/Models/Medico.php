@@ -21,4 +21,8 @@ class Medico extends Model
         'status',
         'email'
     ];
+
+    public function clinicas(){
+        return $this->belongsToMany('App\Models\Clinica');
+    }
 }

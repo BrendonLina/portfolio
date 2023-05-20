@@ -13,7 +13,7 @@
     @endif
 
     <h3>Medicos ativos</h3>
-
+    
     @if(session('success'))
         <div class="alert alert-sucess">
             {{session('success')}}

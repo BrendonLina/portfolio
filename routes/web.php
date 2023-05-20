@@ -65,9 +65,11 @@ Route::prefix('consultorio')->group(function () {
     Route::get('/agendamento', [ConsultorioController::class, 'agendamento'])->name('/agendamento');
     Route::post('/agendamento', [ConsultorioController::class, 'agendamentoPost'])->name('/agendamento');
     Route::get('/areadomedico', [ConsultorioController::class, 'areadomedico'])->name('/areadomedico');
-    Route::post('/areadomedico', [ConsultorioController::class, 'areadomedicoPost'])->name('/areadomedico');
+    Route::post('/dashboard', [ConsultorioController::class, 'areadomedicoLogar'])->name('/dashboard');
+    Route::get('/dashboard', [ConsultorioController::class, 'dashboard'])->name('/dashboard');
     Route::get('/cadastro', [ConsultorioController::class, 'cadastro'])->name('/cadastro');
     Route::post('/cadastro', [ConsultorioController::class, 'cadastroPost'])->name('/cadastro');
+    Route::get('/deslogarMedico', [ConsultorioController::class, 'deslogarMedico'])->name('/deslogarMedico');
 
 });
 

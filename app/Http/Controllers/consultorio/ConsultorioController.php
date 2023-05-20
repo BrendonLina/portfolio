@@ -36,7 +36,7 @@ class ConsultorioController extends Controller
         //         $vazio
         //     ]);
         // }
-        $clinicas = Clinica::where('planos', '=', 'unimed')->get();
+        $clinicas = Clinica::where('local', '=', 'tijuca')->orderBy('nome')->get();
         
         return view('../consultorio/index', compact('clinicas'));
     }
@@ -117,10 +117,6 @@ class ConsultorioController extends Controller
     public function agendamentoPost(Request $request)
     {
 
-        // $medico = new Medico;
-
-        // $horarioDisponivelMedico = $medico->horaios_disponiveis;
-
         $paciente = new Paciente;
         
         $paciente->nome =  $request->nome;
@@ -147,16 +143,8 @@ class ConsultorioController extends Controller
 
     public function agendamento()
     {
-        // $clinicas = ['Barra da Tijuca', 'Centro', 'Tijuca', 'Meier', 'Caxias'];
-        // $planos = ['Unimed', 'Amil', 'Bradesco', 'Assim'];
-        // $horarios_consulta = ['08:00','09:00','10:00','11:00','12:00','14:00','15:00','16:00','17:00','18:00','19:00'];
-        // $medicos = ['Médico' => 'Mario Silva','Médica' => 'Helena Costa','Médica' => 'Gabriela Swte','Médico' => 'João Carlos'];
-
-        // $todasClinicas = Clinica::all();
-       
-        $clinicas = Clinica::where('clinicas', 'tijuca')
-        ->where('planos', '<>' , 'abcde')
-        ->get();
+        
+        $clinicas = Clinica::where('id','>=', 0)->orderBy('nome')->get();
 
         $medicos = Medico::where('status', '=' , 1)->get();
 
@@ -165,12 +153,74 @@ class ConsultorioController extends Controller
 
     public function areadomedico()
     {
+        $sessaoMedico = $this->checkSessionMedico();
+
+        $sessao = $this->checkSession();
+
+        if($sessao){
+            return redirect('../consultorio');
+        }
+
+        if($sessaoMedico){
+            return redirect('../consultorio/dashboard');
+        }
+
         return view('../consultorio/areadomedico');
+
     }
 
-    public function areadomedicoPost(Request $request)
+    public function areadomedicoLogar(Request $request)
     {
-        return view('../consultorio/areadomedico');
+        $this->validate($request,[
+            'email' => 'required',
+            'password' => 'required'
+
+        ],[
+            'email.required' => 'Email é obrigatório!', 
+            'password.required' => 'Senha é obrigatório!', 
+        ]);
+
+
+        $medico = trim($request->input('email'));
+        $password = trim($request->input('password'));
+
+        $medico = Medico::where('email', $medico)->where('status', 1)->first();
+
+        if(!$medico)
+        {
+            return redirect()->back()->with('danger', 'Email ou senha inválida!');
+        }
+
+       if(Hash::check($password, $medico->password))
+       {
+            $request->session()->put("medicoLogado",[
+                'medico' => $medico,  
+            ]);
+            
+            return view('/../consultorio/dashboard', compact('medico'));
+       }
+
+       else
+       {
+           return redirect()->back()->with('danger', 'Email ou senha inválida!');
+       }
+
+        // return view('../consultorio/dashboard');
+    }
+
+    public function dashboard(){
+
+        $sessao = $this->checkSessionMedico();
+
+        if($sessao == "" ?? null ?? 0){
+            return redirect('../consultorio/areadomedico');
+        }
+
+      else{
+
+          return view('../consultorio/dashboard');
+      }
+    
     }
 
     public function cadastro()
@@ -189,10 +239,25 @@ class ConsultorioController extends Controller
     public function cadastroPost(Request $request)
     {
         $this->validate($request,[
-            'email' => 'unique:medicos'
+            'email' => 'unique:medicos|required',
+            'nome' => 'required',
+            'idade' => 'required',
+            'cpf' => 'required',
+            'password' => 'required',
+            'password_confirm' => 'required',
+            'imagem' => 'required',
+            'especialidade' => 'required',
 
         ],[
              'email.unique' => 'Email já utilizado', 
+             'email.required' => 'Email é obrigatório', 
+             'nome.required' => 'Nome é obrigatório', 
+             'idade.required' => 'Idade é obrigatório', 
+             'cpf.required' => 'Cpf é obrigatório', 
+             'password.required' => 'Senha é obrigatório', 
+             'password_confirm.required' => 'Confirmar Senha é obrigatório', 
+             'imagem.required' => 'Imagem é obrigatório', 
+             'especialidade.required' => 'Especialidade é obrigatório', 
         ]);
 
         $medico = new Medico;
@@ -217,6 +282,12 @@ class ConsultorioController extends Controller
 
         $sessao = $this->checkSession();
 
+        $sessaoMedico = $this->checkSessionMedico();
+
+        if($sessaoMedico){
+            return redirect('../consultorio');
+        }
+
         if($sessao){
             return redirect('../consultorio/adm/dash-adm');
         }
@@ -240,8 +311,7 @@ class ConsultorioController extends Controller
 
         $admConsultorio = AdmConsultorio::where('email', $admConsultorio)->first();
 
-        // dd($admConsultorio);
-
+        
         if(!$admConsultorio)
         {
             return redirect()->back()->with('danger', 'Email ou senha inválida!');
@@ -271,6 +341,13 @@ class ConsultorioController extends Controller
         return redirect()->route('/consultorio');
     }
 
+    public function deslogarMedico(){
+
+        session()->forget('medicoLogado');
+
+        return redirect()->route('/consultorio');
+    }
+
     public function verificaSessao(){
 
         $sessao = $this->checkSession();
@@ -289,6 +366,11 @@ class ConsultorioController extends Controller
     private function checkSession()
     {
         return session()->has('admConsultorio');
+    }
+
+    private function checkSessionMedico()
+    {
+        return session()->has('medicoLogado');
     }
 
     public function clinica(){
@@ -312,17 +394,17 @@ class ConsultorioController extends Controller
 
         $this->validate($request,[
             'clinica' => 'required',
-            'plano' => 'required'
+            'local' => 'required'
 
         ],[
             'clinica.required' => 'Clinica precisa ser preenchida!', 
-            'plano.required' => 'Plano precisa ser preenchido', 
+            'local.required' => 'Local precisa ser preenchido', 
         ]);
 
         $clinica = new Clinica;
 
-        $clinica->clinicas = $request->clinica;
-        $clinica->planos = $request->plano;
+        $clinica->nome = $request->clinica;
+        $clinica->local = $request->local;
 
         $clinica->save();
 

@@ -13,18 +13,24 @@
         <div class="list">
             <select name="clinicas" id="clinicas">
                 @foreach($clinicas as $clinica)
-                    <option>Clinica -  {{ $clinica->clinicas }} </option>
+                    <option>Clinica -  {{ $clinica->nome }} </option>
                 @endforeach
             </select>
         </div>
         <div class="menu-top">
             @if(!session('admConsultorio'))
+            @if(!session('medicoLogado'))
             <a href="{{route('/agendamento')}}">Agendamento</a>
             <a href="{{route('/areadomedico')}}">Área do Médico</a>
+            @endif
             @endif
             @if(session('admConsultorio'))
             <a href="{{'/consultorio/adm/dash-adm'}}">Dashboard</a>
             @endif
+            @if(session('medicoLogado'))
+            <a href="{{'/consultorio/dashboard'}}">Dashboard</a>
+            @endif
+            
         </div>
        <div class="logo">
         <h1>LOGO</h1>

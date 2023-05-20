@@ -23,14 +23,14 @@
         <p>Clinicas</p>
         <select name="clinica" id="clinicas_agendamento">
             @foreach($clinicas as $clinica)
-                <option>Clinica - {{ $clinica->clinicas }}</option>
+                <option> {{ $clinica->nome }} - {{$clinica->local}} </option>
             @endforeach
         </select>
         <p>Planos aceitos</p>
         <select name="plano" id="clinicas_agendamento">
-            @foreach($clinicas as $clinica)
+            {{-- @foreach($clinicas as $clinica)
                 <option>{{ $clinica->planos }}</option>
-            @endforeach
+            @endforeach --}}
         </select>
         {{-- <select>
             @foreach($horarios_consulta as $horario_consulta)
@@ -38,6 +38,7 @@
             @endforeach
         </select> --}}
         <button type="submit">AGENDAR CONSULTA</button>
+        <a href="{{route('/consultorio')}}">Voltar</a>
     </form>
 </body>
 </html>
