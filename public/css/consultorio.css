@@ -47,7 +47,7 @@
     justify-content: center;
     align-items: center;
     flex-flow: row wrap;
-    background-color: red;
+    background-color: white;
     padding: 20px;
 }
 
@@ -62,4 +62,38 @@
     margin-top: 70px;
     border: solid black 1px;
     height: 400px;
+}
+
+.footer{
+    display:flex;
+    color: white;
+    font-weight: bold;
+    margin-top: 300px;
+    height: 100px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .footer{
+    display: inline-block;
+    width:50%;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.form-medico{
+    border: 1px solid black;
+    border-radius:20px;
+    padding: 50px;
+}
+
+.inscrevase{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.voltar{
+    padding-left: 20px;
 }

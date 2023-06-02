@@ -33,7 +33,7 @@
             
         </div>
        <div class="logo">
-        <h1>LOGO</h1>
+        <h1>B S N</h1>
             <div class="menu-principal">
                 <a href="">Especialidades</a>
                 <a href="">Equipe</a>
@@ -45,15 +45,20 @@
 
     <header class="header">
         <div class="cont-header">
-            <h1>header</h1>
+            {{-- <h1>header</h1> --}}
+            <img src="img/medico_banner.jpg" alt="medico" width="600" heigth="600">
         </div>
         <div class="cont-header2">
-            <h1>header 2</h1>
+            {{-- <h1>header 2</h1> --}}
+            <img src="img/medico_mesa.jpg" alt="medico" width="600" heigth="600">
         </div>
     </header>
 
     <section>
-
+        <h3>Conteudo</h3>
     </section>
+    <footer class="footer">
+        <p>Desenvolvido por BSNDIGITALTECH</p>
+    </footer>
 </body>
 </html>

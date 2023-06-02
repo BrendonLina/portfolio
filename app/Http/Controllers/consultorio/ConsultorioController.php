@@ -145,8 +145,8 @@ class ConsultorioController extends Controller
     {
         
         $clinicas = Clinica::where('id','>=', 0)->orderBy('nome')->get();
-
         $medicos = Medico::where('status', '=' , 1)->get();
+        // $medicos = Clinica::find(3);
 
         return view('../consultorio/agendamento', compact('clinicas','medicos'));
     }

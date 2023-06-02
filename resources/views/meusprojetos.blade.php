@@ -43,8 +43,8 @@
             <div class="card" style="width: 18rem;">
                 <img src="/img/delta.jpg" width="80" height="80" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Sistema de portal de empregos</h5>
-                    <p class="card-text">Sistema para divulgação de vagas, com controle de quem posta e de quem se candidatou</p>
+                    <h5 class="card-title">Sistema de Imobiliaria</h5>
+                    <p class="card-text">Sistema para divulgação de imóveis, com busca filtros e etc</p>
                     <a href="https://delltaflex.com.br/" target="_blank" class="btn btn-primary">Ver</a>
                 </div>
             </div>
