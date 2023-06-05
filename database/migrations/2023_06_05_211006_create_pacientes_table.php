@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email');
             $table->string('cpf');
-            $table->dateTime('ano_de_nascimento');
+            $table->date('ano_de_nascimento');
             $table->string('telefone');
-            $table->dateTime('data_consulta');
+            $table->date('data_consulta');
             $table->string('clinicas');
             $table->string('medicos');
             $table->timestamps();

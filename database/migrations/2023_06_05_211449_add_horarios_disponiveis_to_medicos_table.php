@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('medicos', function (Blueprint $table) {
-            $table->string('horarios_disponiveis')->nullable();
+            $table->json('horarios_disponiveis');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('medicos', function (Blueprint $table) {
-            //
+            $table->dropColumn('horarios_disponiveis');
         });
     }
 };
