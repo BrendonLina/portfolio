@@ -22,6 +22,10 @@ class Medico extends Model
         'email'
     ];
 
+    protected $casts = [
+        'horarios_disponiveis' => 'array'
+    ];
+
     public function clinicas(){
         return $this->belongsToMany('App\Models\Clinica');
     }

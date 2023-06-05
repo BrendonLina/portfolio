@@ -5,10 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/consultorio.css">
     <title>Agendamento</title>
 </head>
 <body>
-    <form action="{{route('/agendamento')}}" method="post">
+    
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-auto w-50">
+                <form action="{{route('/agendamento')}}" method="post">
+                    @csrf
+
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{session('success')}}
+                        </div>
+                    @endif
+
+                    @if(session('danger'))
+                        <div class="alert alert-danger">
+                            {{session('danger')}}
+                        </div>
+                    @endif
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <input type="text" placeholder="Nome" id="nome" name="nome" class="form-control">
+                                @error('nome')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <input type="email" placeholder="Email" id="email" name="email" class="form-control">
+                                @error('email')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                        </div>    
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col my-1">
+                            <input type="text" placeholder="CPF" id="cpf" name="cpf" class="form-control">
+                                @error('cpf')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <label>Data de Nascimento:</label>
+                            <input type="date" placeholder="Data de nascimento" id="ano_de_nascimento" name="ano_de_nascimento" class="form-control">
+                                @error('ano_de_nascimento')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <input type="text" placeholder="Telefone" id="telefone" name="telefone" class="form-control">
+                                @error('telefone')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <label>Data da consulta:</label>
+                            <input type="date" placeholder="Telefone" id="data_consulta" name="data_consulta" class="form-control">
+                                @error('data_consulta')
+                                    <span>{{ $message }}</span>
+                                @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <select name="clinicas" id="clinicas" class="form-select">
+                                <option selected value="">Selecione uma clinica</option>
+                                @foreach($clinicas as $clinica )
+                                    <option> {{ $clinica->nome }} - {{$clinica->local}}</option>
+                                @endforeach
+                            </select>
+                            @error('clinicas')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="col my-1">
+                            <select name="medicos" id="medicos" class="form-select">
+                                <option selected value="">Selecione uma médico</option>
+                                @foreach($medicos as $medico )
+                                    <option> {{ $medico->nome }}</option>
+                                @endforeach
+                            </select>
+                            @error('medicos')
+                                <span>{{ $message }}</span>
+                            @enderror
+                        </div>    
+                    </div>
+
+                    <div class="row">
+                        <div class="d-grid gap-2 mt-2">
+                            <button type="submit" class="btn btn-success">AGENDAR CONSULTA</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col inscrevase">
+                            <a href="{{ route('/consultorio') }}" class="voltar">Voltar</a>
+                        </div>
+                    </div>
+
+                </form> 
+            </div>
+        </div>
+    </div>
+    
+    {{-- <form action="{{route('/agendamento')}}" method="post">
         @csrf
         <div class="formulario">
         <div class="my-3 w-25">
@@ -70,11 +191,11 @@
                 <option>{{ $horario_consulta }}</option>
             @endforeach
         </select> --}}
-        <div class="my-3 w-25">
+        {{-- <div class="my-3 w-25">
             <button type="submit" class="btn btn-success btn-sm">AGENDAR CONSULTA</button>
             <a href="{{route('/consultorio')}}">Voltar</a>
         </div>
     </div>    
-    </form>
+    </form> --}}
 </body>
 </html>

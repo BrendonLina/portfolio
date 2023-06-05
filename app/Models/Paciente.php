@@ -14,10 +14,15 @@ class Paciente extends Model
         'nome',
         'email',
         'cpf',
-        'clinica',
-        'plano',
-        'idade',
+        'clinicas',
+        'ano_de_nascimento',
         'telefone',
         'data_consulta',
+        'medicos'
+    ];
+
+    protected $dates = [
+        'ano_de_nascimento',
+        'data_consulta'
     ];
 }

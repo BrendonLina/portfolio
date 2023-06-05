@@ -117,27 +117,48 @@ class ConsultorioController extends Controller
     public function agendamentoPost(Request $request)
     {
 
+        $this->validate($request,[
+            'nome' => 'required',
+            'email' => 'required',
+            'cpf' => 'required',
+            'ano_de_nascimento' => 'required',
+            'data_consulta' => 'required',
+            'clinicas' => 'required',
+            'medicos' => 'required',
+            'telefone' => 'required',
+            
+
+        ],[
+            'email.required' => 'Email é obrigatório!', 
+            'nome.required' => 'Nome é obrigatório!', 
+            'cpf.required' => 'cpf é obrigatório!', 
+            'ano_de_nascimento.required' => 'data de nascimento é obrigatório!', 
+            'data_consulta.required' => 'data de consulta é obrigatório!', 
+            'clinicas.required' => 'clinica é obrigatório!', 
+            'medicos.required' => 'médico é obrigatório!', 
+            'telefone.required' => 'telefone é obrigatório!', 
+        ]);
+
         $paciente = new Paciente;
         
         $paciente->nome =  $request->nome;
         $paciente->email =  $request->email;
         $paciente->cpf =  $request->cpf;
-        $paciente->clinica =  $request->clinica;
-        $paciente->plano =  $request->plano;
-        $paciente->idade =  $request->idade;
+        $paciente->ano_de_nascimento =  $request->ano_de_nascimento;
         $paciente->telefone =  $request->telefone;
         $paciente->data_consulta =  $request->data_consulta;
+        $paciente->clinicas =  $request->clinicas;
+        $paciente->medicos =  $request->medicos; 
 
-        // $horarioDisponivelMedico = $request->data_consulta;
-        
-
-        if($paciente->nome == ""){
-            return redirect('../consultorio/agendamento');
+        if($paciente->clinicas == "" || $paciente->medicos == ""){
+            // return redirect('../consultorio/agendamento');
+            return redirect()->back()->with('danger', 'Por favor preecha todos os campos!');
         }
 
         $paciente->save();
 
-        return redirect('../consultorio/agendamento');
+        // return redirect('../consultorio/agendamento');
+        return redirect()->back()->with('success', 'Agendamento concluido com sucesso!');
         
     }
 
@@ -149,6 +170,28 @@ class ConsultorioController extends Controller
         // $medicos = Clinica::find(3);
 
         return view('../consultorio/agendamento', compact('clinicas','medicos'));
+    }
+
+    public function consultarAgendamento(Request $request){
+
+        $this->validate($request,[
+            'consulta_agendamento' => 'min:11|max:11',
+            
+        ],[
+            'consulta_agendamento.min' => 'CPF incompleto!',  
+            'consulta_agendamento.max' => 'Por favor digite apenas os 11 digitos do CPF!',  
+        ]);
+
+        $consultaUsuario = request('consulta_agendamento');
+        $consultaAgendamento = Paciente::where('cpf', 'like', '%'.$consultaUsuario.'%')->get();
+    
+        if($consultaUsuario){
+
+            $consultaAgendamento = Paciente::where('cpf', 'like', '%'.$consultaUsuario.'%')->get();
+            
+        }
+       
+        return view('../consultorio/consultaragendamento', compact('consultaAgendamento','consultaUsuario'));
     }
 
     public function areadomedico()
