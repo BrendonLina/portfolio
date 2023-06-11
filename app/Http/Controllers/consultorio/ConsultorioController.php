@@ -37,7 +37,7 @@ class ConsultorioController extends Controller
         //     ]);
         // }
         $clinicas = Clinica::where('local', '=', 'tijuca')->orderBy('nome')->get();
-        
+  
         return view('../consultorio/index', compact('clinicas'));
     }
 
@@ -313,6 +313,10 @@ class ConsultorioController extends Controller
         $medico->imagem =  $request->imagem;
         $medico->especialidade =  $request->especialidade;
         $medico->horarios_disponiveis =  $request->horarios_disponiveis;
+        if($medico->horarios_disponiveis == ""){
+            
+            return redirect()->back()->with('danger', 'Pelo menos uma hora deve ser preechida!');
+        }
         $medico->status =  0;
         
         

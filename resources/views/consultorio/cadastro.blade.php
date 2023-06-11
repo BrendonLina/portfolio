@@ -138,7 +138,7 @@
 
                     <div class="row">
                         <div class="col inscrevase">
-                            <a href="{{ route('/consultorio') }}" class="voltar">Voltar</a>
+                            <a href="{{ route('/areadomedico') }}" class="voltar">Voltar</a>
                         </div>
                     </div>
 

@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col my-1">
+                        <div class="d-grid gap-2 my-1">
                             <button type="submit" class="btn btn-primary">Buscar</button>
                         </div>    
                     </div>
@@ -40,11 +40,29 @@
                     @if($consultaUsuario)
                     <div class="row">
                         <div class="col my-1">
-                            <h4> Resultado: {{$consultaUsuario}}</h4>
-                            
+                            <h5> Resultado da busca: {{$consultaUsuario}}</h5>
+
                             @foreach ($consultaAgendamento as $consulta )
-                                <p>Paciente: {{$consulta->nome}}</p>
-                                <p>Médico: {{$consulta->medicos}}</p>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Paciente</th>
+                                    <th scope="col">Medico</th>
+                                    <th scope="col">Data</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                      @for($i = 1; $i <= 1; $i++)     
+                                      <th scope="row">{{$i}}</th>
+                                      @endfor
+                                    <td>{{$consulta->nome}}</td>
+                                    <td>{{$consulta->medicos}}</td>
+                                    <td>{{$consulta->data_consulta = substr($consulta->data_consulta,0,10)}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
                             @endforeach
                         </div>    
                     </div>
