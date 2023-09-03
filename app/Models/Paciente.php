@@ -25,4 +25,8 @@ class Paciente extends Model
         'ano_de_nascimento',
         'data_consulta'
     ];
+
+    public function medicos(){
+        return $this->belongsToMany('App\Models\Medico');
+    }
 }

@@ -184,14 +184,14 @@ class ConsultorioController extends Controller
 
         $consultaUsuario = request('consulta_agendamento');
         $consultaAgendamento = Paciente::where('cpf', 'like', '%'.$consultaUsuario.'%')->get();
-    
+        $data = date('Y-m-d');
         if($consultaUsuario){
 
             $consultaAgendamento = Paciente::where('cpf', 'like', '%'.$consultaUsuario.'%')->get();
             
         }
        
-        return view('../consultorio/consultaragendamento', compact('consultaAgendamento','consultaUsuario'));
+        return view('../consultorio/consultaragendamento', compact('consultaAgendamento','consultaUsuario','data'));
     }
 
     public function areadomedico()
@@ -223,11 +223,10 @@ class ConsultorioController extends Controller
             'password.required' => 'Senha é obrigatório!', 
         ]);
 
-
         $medico = trim($request->input('email'));
         $password = trim($request->input('password'));
 
-        $medico = Medico::where('email', $medico)->where('status', 1)->first();
+        $medico = Medico::where('email', $medico)->where('status', 1)->with('pacientes')->first();
 
         if(!$medico)
         {
@@ -254,6 +253,8 @@ class ConsultorioController extends Controller
     public function dashboard(){
 
         $sessao = $this->checkSessionMedico();
+
+        // $medico = Medico::where('id', 1)->first();
 
         if($sessao == "" ?? null ?? 0){
             return redirect('../consultorio/areadomedico');
@@ -312,17 +313,42 @@ class ConsultorioController extends Controller
         $medico->password =  bcrypt($request->password);
         $medico->imagem =  $request->imagem;
         $medico->especialidade =  $request->especialidade;
-        $medico->horarios_disponiveis =  $request->horarios_disponiveis;
-        if($medico->horarios_disponiveis == ""){
+        // $medico->horarios_disponiveis =  $request->horarios_disponiveis;
+        $medico->horarios_disponiveis =  '';
+        // if($medico->horarios_disponiveis == ""){
             
-            return redirect()->back()->with('danger', 'Pelo menos uma hora deve ser preechida!');
-        }
+        //     return redirect()->back()->with('danger', 'Pelo menos uma hora deve ser preechida!');
+        // }
         $medico->status =  0;
         
         
         $medico->save();
 
         return view('../consultorio/cadastro');
+    }
+
+    public function horarioMedicoPost(Request $request, $id){
+
+        
+        $medico = Medico::where('id', $id)->first();
+
+        $medico->horarios_disponiveis = $request->horarios_disponiveis;
+
+        $medico->update();
+
+        return redirect()->back()->with('success', 'Horário cadastrado com sucesso!');
+    }
+
+    public function horarioMedico(Request $request){
+
+        $sessaoMedico = $this->checkSessionMedico();
+
+        if(!$sessaoMedico){
+            return redirect('../consultorio/areadomedico');
+        }
+
+       return view('../consultorio/horariomedico');
+
     }
 
     public function login(){
@@ -486,6 +512,7 @@ class ConsultorioController extends Controller
     }
     public function aprovar(Request $request, $id){
 
+        // dd($request->id);
         $aprovaMedico = Medico::find($id);
         $aprovaMedico->status = 1;
 
@@ -515,6 +542,15 @@ class ConsultorioController extends Controller
         Medico::findOrFail($id)->delete();
 
         return redirect()->back()->with('success', 'Médico exluido com sucesso!');
+    }
+
+    public function meusPacientes(){
+        
+        // $pacientes = Medico::find(1)->with('pacientes')->first();
+        $pacientes = Medico::all();
+        
+        // dd($pacientes);
+        return view('./consultorio/paciente', compact('pacientes'));
     }
 
 }

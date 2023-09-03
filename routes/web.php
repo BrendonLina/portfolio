@@ -71,6 +71,9 @@ Route::prefix('consultorio')->group(function () {
     Route::get('/cadastro', [ConsultorioController::class, 'cadastro'])->name('/cadastro');
     Route::post('/cadastro', [ConsultorioController::class, 'cadastroPost'])->name('/cadastro');
     Route::get('/deslogarMedico', [ConsultorioController::class, 'deslogarMedico'])->name('/deslogarMedico');
+    Route::get('/horariomedico', [ConsultorioController::class, 'horarioMedico'])->name('/horariomedico');
+    Route::put('/horariomedicos/{id}', [ConsultorioController::class, 'horarioMedicoPost'])->name('/horariosmedicos');
+    Route::get('/pacientes', [ConsultorioController::class, 'meusPacientes'])->name('/pacientes');
 
 });
 

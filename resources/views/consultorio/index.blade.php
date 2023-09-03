@@ -21,7 +21,7 @@
             @if(!session('admConsultorio'))
             @if(!session('medicoLogado'))
             <a href="{{route('/agendamento')}}">Agendamento</a>
-            <a href="{{route('/consultar-agendamento')}}">Consultar Agendamento</a>
+            {{-- <a href="{{route('/consultar-agendamento')}}">Consultar Agendamento</a> --}}
             <a href="{{route('/areadomedico')}}">Área do Médico</a>
             @endif
             @endif
@@ -36,8 +36,13 @@
        <div class="logo">
         <h1>B S N</h1>
             <div class="menu-principal">
+                @if(!session('admConsultorio'))
+                @if(!session('medicoLogado'))
+                <a href="{{route('/consultar-agendamento')}}">Consultar Agendamento</a>
+                @endif
+                @endif
                 <a href="">Especialidades</a>
-                <a href="">Equipe</a>
+                {{-- <a href="">Equipe</a> --}}
                 <a href="">Fale conosco</a>
             </div>
        </div>

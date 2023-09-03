@@ -41,8 +41,9 @@
                     <div class="row">
                         <div class="col my-1">
                             <h5> Resultado da busca: {{$consultaUsuario}}</h5>
-
+                               
                             @foreach ($consultaAgendamento as $consulta )
+                            @if( $consulta->data_consulta >= $data)
                             <table class="table">
                                 <thead>
                                   <tr>
@@ -63,10 +64,12 @@
                                   </tr>
                                 </tbody>
                               </table>
+                              @endif
                             @endforeach
                         </div>    
                     </div>
                     @endif
+                    
                 </form> 
             </div>
         </div>

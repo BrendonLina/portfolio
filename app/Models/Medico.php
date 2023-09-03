@@ -29,4 +29,8 @@ class Medico extends Model
     public function clinicas(){
         return $this->belongsToMany('App\Models\Clinica');
     }
+
+    public function pacientes(){
+        return $this->belongsToMany('App\Models\Paciente');
+    }
 }

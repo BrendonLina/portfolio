@@ -96,9 +96,9 @@
                         </div>    
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col">
-                            {{-- <input type="time" placeholder="Horario" id="hora" name="hora" class="form-control"> --}}
+                            
                             <p>Horários disponiveis:</p>
                             <input type="checkbox" id="06:00" name="horarios_disponiveis[]" value="06:00">
                             <label for="horarios_disponiveis">06:00</label>
@@ -128,7 +128,7 @@
                             <label for="horarios_disponiveis">18:00</label>
                            
                         </div>    
-                    </div>
+                    </div> --}}
 
                     <div class="row">
                         <div class="d-grid gap-2 mt-2">
